@@ -20,16 +20,28 @@
     ],
     "overrides": [
         {
-            "files": ["*.js", "*.ts", "*.tsx"]
+            "files": [
+                "*.js",
+                "*.ts",
+                "*.tsx"
+            ]
         }
     ],
     "settings": {
         "import/parsers": {
-            "@typescript-eslint/parser": [".ts", ".tsx"]
+            "@typescript-eslint/parser": [
+                ".ts",
+                ".tsx"
+            ]
         },
         "import/resolver": {
             "node": {
-                "extensions": [".js", ".ts", ".jsx", ".tsx"]
+                "extensions": [
+                    ".js",
+                    ".ts",
+                    ".jsx",
+                    ".tsx"
+                ]
             },
             "typescript": {
                 "project": "<root>/tsconfig.json"
@@ -38,6 +50,14 @@
     },
     "rules": {
         "semi": "error",
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": [
+                    "prop-types"
+                ]
+            }
+        ],
         "react/jsx-filename-extension": [
             "error",
             {
