@@ -20,16 +20,28 @@
     ],
     "overrides": [
         {
-            "files": ["*.js", "*.ts", "*.tsx"]
+            "files": [
+                "*.js",
+                "*.ts",
+                "*.tsx"
+            ]
         }
     ],
     "settings": {
         "import/parsers": {
-            "@typescript-eslint/parser": [".ts", ".tsx"]
+            "@typescript-eslint/parser": [
+                ".ts",
+                ".tsx"
+            ]
         },
         "import/resolver": {
             "node": {
-                "extensions": [".js", ".ts", ".jsx", ".tsx"]
+                "extensions": [
+                    ".js",
+                    ".ts",
+                    ".jsx",
+                    ".tsx"
+                ]
             },
             "typescript": {
                 "project": "<root>/tsconfig.json"
@@ -46,6 +58,135 @@
                     ".tsx",
                     ".js"
                 ]
+            }
+        ],
+        "func-names": "error",
+        "curly": [
+            "error",
+            "all"
+        ],
+        "import/order": [
+            "error",
+            {
+                "newlines-between": "never"
+            }
+        ],
+        "jest/consistent-test-it": [
+            "error",
+            {
+                "fn": "test"
+            }
+        ],
+        "jest/expect-expect": "error",
+        "jest/prefer-todo": "warn",
+        "max-len": [
+            "error",
+            120,
+            {
+                "ignoreComments": true,
+                "ignoreRegExpLiterals": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true,
+                "ignoreTrailingComments": true,
+                "ignoreUrls": true,
+                "tabWidth": 4
+            }
+        ],
+        "no-irregular-whitespace": [
+            "error",
+            {
+                "skipComments": false,
+                "skipRegExps": false,
+                "skipStrings": false,
+                "skipTemplates": false
+            }
+        ],
+        "no-use-before-define": [
+            "error",
+            {
+                "classes": true,
+                "functions": false,
+                "variables": true
+            }
+        ],
+        "padding-line-between-statements": [
+            "error",
+            {
+                "blankLine": "always",
+                "next": "return",
+                "prev": "*"
+            },
+            {
+                "blankLine": "any",
+                "next": "return",
+                "prev": [
+                    "block-like",
+                    "const",
+                    "let",
+                    "var"
+                ]
+            },
+            {
+                "blankLine": "always",
+                "next": "export",
+                "prev": "*"
+            },
+            {
+                "blankLine": "any",
+                "next": "export",
+                "prev": "export"
+            }
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "printWidth": 120,
+                "singleQuote": true,
+                "tabWidth": 4,
+                "trailingComma": "es5"
+            }
+        ],
+        "react/jsx-no-bind": "error",
+        "react/destructuring-assignment": "warn",
+        "react/forbid-prop-types": "error",
+        "react/function-component-definition": [
+            "error",
+            {
+                "namedComponents": "function-declaration",
+                "unnamedComponents": "function-expression"
+            }
+        ],
+        "react/jsx-first-prop-new-line": "error",
+        "react/jsx-indent": [
+            "error",
+            4
+        ],
+        "react/jsx-indent-props": [
+            "error",
+            4
+        ],
+        "react/jsx-key": "error",
+        "react/jsx-sort-default-props": [
+            "error",
+            {
+                "ignoreCase": true
+            }
+        ],
+        "react/jsx-sort-props": [
+            "error",
+            {
+                "ignoreCase": true
+            }
+        ],
+        "react/no-access-state-in-setstate": "error",
+        "react/require-default-props": "error",
+        "react/require-optimization": "error",
+        "react/sort-prop-types": [
+            "error",
+            {
+                "callbacksLast": false,
+                "ignoreCase": true,
+                "requiredFirst": false
             }
         ]
     }
