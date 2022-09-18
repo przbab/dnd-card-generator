@@ -1,0 +1,31 @@
+{
+    "extends": "stylelint-config-standard-scss",
+    "rules": {
+        "string-quotes": "single",
+        "indentation": 4,
+        "selector-list-comma-newline-after": "always-multi-line",
+        "block-no-empty": null,
+        "at-rule-no-unknown": null,
+        "no-descending-specificity": null,
+        "property-no-unknown": null,
+        "declaration-property-value-disallowed-list": {
+            "font-size": ["/\\d+px/"],
+            "font-weight": ["/\\d+/"],
+            "line-height": ["/\\d+px/"]
+        },
+        "selector-class-pattern": [
+            "[a-z][A-Za-z]*",
+            {
+                "resolveNestedSelectors": true
+            }
+        ],
+        "property-no-vendor-prefix": null,
+        "value-no-vendor-prefix": null,
+        "selector-pseudo-class-no-unknown": [
+            true,
+            {
+                "ignorePseudoClasses": ["global", "export"]
+            }
+        ]
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "env": {
+        "browser": true,
+        "jest/globals": true,
+        "node": true
+    },
+    "extends": [
+        "airbnb",
+        "plugin:jest/recommended",
+        "prettier",
+        "plugin:react-hooks/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "jest",
+        "react-hooks",
+        "react",
+        "prettier",
+        "import"
+    ],
+    "overrides": [
+        {
+            "files": ["*.js", "*.ts", "*.tsx"]
+        }
+    ],
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".ts", ".jsx", ".tsx"]
+            },
+            "typescript": {
+                "project": "<root>/tsconfig.json"
+            }
+        }
+    },
+    "rules": {
+        "semi": "error",
+        "react/jsx-filename-extension": [
+            "error",
+            {
+                "extensions": [
+                    ".jsx",
+                    ".tsx",
+                    ".js"
+                ]
+            }
+        ]
+    }
+}
