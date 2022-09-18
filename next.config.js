@@ -16,7 +16,7 @@ const nextConfig = {
         const globalHeaders = [
             {
                 key: 'Cache-Control',
-                value: "600",
+                value: '600',
             },
             {
                 key: 'X-Content-Type-Options',
@@ -61,7 +61,7 @@ const nextConfig = {
                 headers: globalHeaders,
             },
         ];
-    }
+    },
 };
 
 module.exports = nextConfig;
