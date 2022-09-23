@@ -1,5 +1,9 @@
+@import '../../styles/constants';
+
 .root {
     display: flex;
     flex-direction: column;
     height: 100%;
+    border-right: 1px solid $color3;
+    box-shadow: inset -1px 0 4px $color4;
 }

@@ -1,23 +1,18 @@
-import React from 'react';
-import Sidebar from '../../components/Sidebar';
-import spellListIndex from '../../../public/spells/index.json';
+import React, { ReactElement } from 'react';
+import Page from '../../components/Page';
 import styles from './index.module.scss';
+import GeneratorLayout from 'components/GeneratorLayout';
 
-function Generator({ spellList }) {
+function Generator() {
     return (
-        <div className={styles.root}>
-            <Sidebar spellList={spellList} />
-            <main>Test</main>
-        </div>
+        <main className={styles.root}>
+            <Page />
+        </main>
     );
 }
 
-export async function getStaticProps() {
-    return {
-        props: {
-            spellList: spellListIndex,
-        },
-    };
-}
+Generator.getLayout = function getLayout(page: ReactElement) {
+    return <GeneratorLayout>{page}</GeneratorLayout>;
+};
 
 export default Generator;
