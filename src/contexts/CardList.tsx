@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useMemo, useState } from 'react';
-import CardType from '../types/Card';
+import CardType from 'types/Card.type';
 
 const CardListContext = createContext({
     cardList: [],
