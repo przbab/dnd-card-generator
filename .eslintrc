@@ -16,7 +16,8 @@
         "react-hooks",
         "react",
         "prettier",
-        "import"
+        "import",
+        "@typescript-eslint"
     ],
     "overrides": [
         {
@@ -193,6 +194,9 @@
                 "ts": "never",
                 "tsx": "never"
             }
-        ]
+        ],
+        "import/prefer-default-export": "off",
+        "no-redeclare": "off",
+        "@typescript-eslint/no-redeclare": ["error"]
     }
 }

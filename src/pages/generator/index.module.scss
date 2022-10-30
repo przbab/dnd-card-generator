@@ -1,0 +1,17 @@
+$spacing-distance-desktop: 32px;
+
+.root {
+    height: 100%;
+    padding: $spacing-distance-desktop;
+    display: flex;
+    gap: $spacing-distance-desktop;
+    flex-wrap: wrap;
+}
+
+.panel {
+    flex-grow: 1;
+}
+
+.cardList {
+    max-width: 256px;
+}

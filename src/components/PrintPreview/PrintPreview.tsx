@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Page() {
+function PrintPreview() {
     return (
         <>
             <div>Options panel</div>
@@ -9,4 +9,4 @@ function Page() {
     );
 }
 
-export default Page;
+export default PrintPreview;

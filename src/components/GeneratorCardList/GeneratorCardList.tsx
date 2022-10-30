@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
 import CardList from './CardList/CardList';
-import styles from './Sidebar.module.scss';
+import styles from './GeneratorCardList.module.scss';
 
-function Sidebar() {
+export function GeneratorCardList() {
     return (
         <aside className={styles.root}>
             <form>
@@ -16,5 +16,3 @@ function Sidebar() {
         </aside>
     );
 }
-
-export default Sidebar;
