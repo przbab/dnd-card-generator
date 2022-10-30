@@ -16,7 +16,8 @@
         "react-hooks",
         "react",
         "prettier",
-        "import"
+        "import",
+        "@typescript-eslint"
     ],
     "overrides": [
         {
@@ -30,7 +31,9 @@
     "settings": {
         "import/parsers": {
             "@typescript-eslint/parser": [
+                ".js",
                 ".ts",
+                ".jsx",
                 ".tsx"
             ]
         },
@@ -49,15 +52,7 @@
         }
     },
     "rules": {
-        "semi": "error",
-        "import/no-extraneous-dependencies": [
-            "error",
-            {
-                "devDependencies": [
-                    "prop-types"
-                ]
-            }
-        ],
+        "import/no-extraneous-dependencies": "off",
         "react/jsx-filename-extension": [
             "error",
             {
@@ -156,7 +151,6 @@
         ],
         "react/jsx-no-bind": "error",
         "react/destructuring-assignment": "warn",
-        "react/forbid-prop-types": "error",
         "react/function-component-definition": [
             "error",
             {
@@ -189,13 +183,20 @@
         "react/no-access-state-in-setstate": "error",
         "react/require-default-props": "error",
         "react/require-optimization": "error",
-        "react/sort-prop-types": [
+        "react/prop-types": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "import/extensions": [
             "error",
+            "ignorePackages",
             {
-                "callbacksLast": false,
-                "ignoreCase": true,
-                "requiredFirst": false
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
             }
-        ]
+        ],
+        "import/prefer-default-export": "off",
+        "no-redeclare": "off",
+        "@typescript-eslint/no-redeclare": ["error"]
     }
 }
