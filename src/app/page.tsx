@@ -4,8 +4,8 @@ import React from 'react';
 function HelloWorld() {
     return (
         <main>
-            <Link href="/generator">
-                <a type="button">Go to generator</a>
+            <Link href="/generator" type="button">
+                Go to generator
             </Link>
         </main>
     );

@@ -1,6 +1,6 @@
 const nextConfig = {
     experimental: {
-        scrollRestoration: true,
+        appDir: true,
     },
     eslint: {
         ignoreDuringBuilds: true,

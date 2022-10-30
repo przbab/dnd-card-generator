@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import Page from '../../components/Page';
-import styles from './index.module.scss';
+import styles from './page.module.scss';
 import GeneratorLayout from 'components/GeneratorLayout';
 
 function Generator() {

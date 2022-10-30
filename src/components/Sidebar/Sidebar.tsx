@@ -3,21 +3,16 @@ import React from 'react';
 import CardList from './CardList/CardList';
 import styles from './Sidebar.module.scss';
 
-function Sidebar({ spellList }) {
+function Sidebar() {
     return (
         <aside className={styles.root}>
             <form>
-                <input list="itemList" type="search" />
+                <input type="search" />
             </form>
             <CardList />
-            <Link href="/generator/edit">
-                <a type="button">New card</a>
+            <Link href="/generator/edit" type="button">
+                New card
             </Link>
-            <datalist id="itemList">
-                {spellList.map((spell) => (
-                    <option key={spell.id} value={spell.name} />
-                ))}
-            </datalist>
         </aside>
     );
 }
