@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components Panel Should match snapshot 1`] = `
+<div
+  className="root additional-class-name"
+>
+  <span>
+    Test children
+  </span>
+</div>
+`;
