@@ -1,3 +1,4 @@
+import { DocumentNode } from 'graphql';
 import { print } from 'graphql/language/printer';
 import getPersistedQueryHashClient from '../helpers/persistedQueryHash/client';
 import getPersistedQueryHashServer from '../helpers/persistedQueryHash/server';
@@ -93,8 +94,14 @@ const fetchPersistedQuery = async ({ query, variables, headers }) => {
     throw new Error(`GraphQL persisted query failed ${url.href}`);
 };
 
+type queryType = {
+    query: DocumentNode;
+    variables?: Record<string, any>;
+    headers?: Record<string, string>;
+};
+
 const graphqlClient = {
-    query: async ({ query, variables, headers }) => {
+    query: async ({ query, variables, headers }: queryType) => {
         try {
             if (shouldUsePersistedQuery()) {
                 // DO NOT REMOVE await HERE - it's required for fallback to fetchQuery to work

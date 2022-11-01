@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef } from 'react';
 import { debounce } from 'throttle-debounce';
 import { linkToSearch } from '../../helpers/links';
 import { getQueryParam } from '../../helpers/routing';
@@ -13,10 +13,12 @@ export function SearchPanel() {
         (e) => {
             e.preventDefault();
 
-            const formData = new FormData(formRef.current);
-            const searchParams = new URLSearchParams(formData as any);
+            if (formRef.current) {
+                const formData = new FormData(formRef.current);
+                const searchParams = new URLSearchParams(formData as any);
 
-            router.replace(`${linkToSearch()}?${searchParams.toString()}`, undefined, { shallow: true });
+                router.replace(`${linkToSearch()}?${searchParams.toString()}`, undefined, { shallow: true });
+            }
         },
         [router]
     );
@@ -28,12 +30,17 @@ export function SearchPanel() {
         if (router.isReady && searchQuery && formRef.current?.querySelector('input[type="search"]')) {
             (formRef.current.querySelector('input[type="search"]') as HTMLInputElement).value = searchQuery;
         }
-        // ignore searchQuery change,
+        // ignore searchQuery change
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [router.isReady]);
 
-    useEffect(() => {
-        formRef.current.addEventListener('change', handleChange);
+    useLayoutEffect(() => {
+        const ref = formRef.current;
+        ref.addEventListener('change', handleChange);
+
+        return () => {
+            ref.removeEventListener('change', handleChange);
+        };
     }, [handleChange]);
 
     return (
