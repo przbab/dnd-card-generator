@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
+import { linkToGenerator } from '../helpers/links';
 
 function HelloWorld() {
     return (
         <main>
-            <Link href="/generator" type="button">
+            <Link href={linkToGenerator()} type="button">
                 Go to generator
             </Link>
         </main>

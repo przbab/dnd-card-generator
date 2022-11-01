@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import cn from 'classnames';
 import GeneratorCardList from '../../components/GeneratorCardList';
 import GeneratorLayout from '../../layout/GeneratorLayout/GeneratorLayout';
 import Panel from '../../components/Panel';
@@ -9,7 +9,7 @@ import styles from './index.module.scss';
 function Generator() {
     return (
         <main className={styles.root}>
-            <Panel className={classnames(styles.panel, styles.cardList)}>
+            <Panel className={cn(styles.panel, styles.cardList)}>
                 <GeneratorCardList />
             </Panel>
             <Panel className={styles.panel}>

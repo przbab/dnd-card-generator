@@ -1,4 +1,4 @@
-@import '../../styles/constants';
+@import '../../../styles/constants';
 
 .root {
     height: 100%;
@@ -12,6 +12,6 @@
     flex-grow: 1;
 }
 
-.cardList {
+.searchFilters {
     max-width: 256px;
 }
