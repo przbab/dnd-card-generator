@@ -11,7 +11,8 @@
         "prepare": "husky install",
         "stylelint": "stylelint \"./**/*.scss\"",
         "test": "jest ./src",
-        "test:watch": "jest --watch"
+        "test:watch": "jest --watch",
+        "codegen": "graphql-codegen --config codegen.ts"
     },
     "repository": {
         "type": "git",
@@ -27,6 +28,8 @@
     },
     "dependencies": {
         "classnames": "^2.3.2",
+        "graphql": "^16.6.0",
+        "graphql-tag": "^2.12.6",
         "next": "^13.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
@@ -34,6 +37,11 @@
     "devDependencies": {
         "@commitlint/cli": "^17.1.2",
         "@commitlint/config-conventional": "^17.1.0",
+        "@graphql-codegen/cli": "2.13.8",
+        "@graphql-codegen/client-preset": "1.1.2",
+        "@graphql-codegen/introspection": "2.2.1",
+        "@graphql-codegen/typescript": "^2.8.0",
+        "@graphql-codegen/typescript-operations": "^2.5.5",
         "@types/jest": "^29.2.1",
         "@types/react": "^18.0.24",
         "@types/react-dom": "^18.0.8",
