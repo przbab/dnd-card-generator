@@ -22,10 +22,12 @@ jobs:
       run: npm ci
   eslint:
     needs: setup
+    steps:
     - name: Run eslint
       npm run eslint
   stylelint:
     needs: setup
+    steps:
     - name: Run stylelint
       npm run stylelint
 
