@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useContext } from 'react';
 import { CardItem } from './CardItem';
 import styles from './CardList.module.scss';

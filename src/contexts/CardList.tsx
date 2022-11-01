@@ -1,5 +1,3 @@
-'use client';
-
 import React, { createContext, useCallback, useMemo, useState } from 'react';
 import CardType from 'types/Card.type';
 
@@ -8,7 +6,7 @@ const CardListContext = createContext({
 });
 
 function CardListContextProvider({ children }) {
-    const [cardList, setCardList] = useState([])
+    const [cardList, setCardList] = useState([]);
 
     const addCard = useCallback((card: CardType) => {
         setCardList((state) => state.concat(card));
@@ -22,7 +20,7 @@ function CardListContextProvider({ children }) {
         [addCard, cardList]
     );
 
-    return <CardListContext.Provider value={value}>{children}</CardListContext.Provider>
+    return <CardListContext.Provider value={value}>{children}</CardListContext.Provider>;
 }
 
 export { CardListContextProvider };
