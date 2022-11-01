@@ -1,4 +1,4 @@
-name: Lint
+name: Lint & test
 
 on:
   push:
@@ -8,26 +8,18 @@ on:
     branches:
       - master
 
-permissions:
-  checks: write
-  contents: write
-
 jobs:
-  setup:
+  lint:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Install Node.js dependencies
       run: npm ci
-  eslint:
-    needs: setup
-    steps:
     - name: Run eslint
       run: npm run eslint
-  stylelint:
-    needs: setup
-    steps:
     - name: Run stylelint
       run: npm run stylelint
+    - name: Run tests
+      run: npm run test
 
