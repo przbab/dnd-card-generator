@@ -24,10 +24,10 @@ jobs:
     needs: setup
     steps:
     - name: Run eslint
-      npm run eslint
+      run: npm run eslint
   stylelint:
     needs: setup
     steps:
     - name: Run stylelint
-      npm run stylelint
+      run: npm run stylelint
 
