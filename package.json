@@ -6,13 +6,14 @@
     },
     "scripts": {
         "build": "next build",
+        "codegen": "graphql-codegen --config codegen.ts",
         "dev": "next dev",
         "lint": "eslint .",
         "prepare": "husky install",
         "stylelint": "stylelint \"./**/*.scss\"",
         "test": "jest ./src",
         "test:watch": "jest --watch",
-        "codegen": "graphql-codegen --config codegen.ts"
+        "typecheck": "tsc"
     },
     "repository": {
         "type": "git",

@@ -19,6 +19,9 @@ jobs:
     - name: Run eslint
       if: always()
       run: npm run lint
+    - name: Run type check
+      if: always()
+      run: npm run typecheck
     - name: Run stylelint
       if: always()
       run: npm run stylelint
