@@ -10,8 +10,8 @@
         "lint": "eslint .",
         "prepare": "husky install",
         "stylelint": "stylelint \"./**/*.scss\"",
-        "test": "NODE_ENV=testing jest ./src",
-        "test:watch": "NODE_ENV=testing jest --watch"
+        "test": "jest ./src",
+        "test:watch": "jest --watch"
     },
     "repository": {
         "type": "git",
@@ -34,6 +34,7 @@
     "devDependencies": {
         "@commitlint/cli": "^17.1.2",
         "@commitlint/config-conventional": "^17.1.0",
+        "@types/jest": "^29.2.1",
         "@types/react": "^18.0.24",
         "@types/react-dom": "^18.0.8",
         "@typescript-eslint/eslint-plugin": "^5.41.0",
