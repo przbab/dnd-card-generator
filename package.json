@@ -9,7 +9,7 @@
         "dev": "next dev",
         "lint": "eslint .",
         "prepare": "husky install",
-        "stylelint": "stylelint './**/*.scss'",
+        "stylelint": "stylelint \"./**/*.scss\"",
         "test": "NODE_ENV=testing jest ./src",
         "test:watch": "NODE_ENV=testing jest --watch"
     },
