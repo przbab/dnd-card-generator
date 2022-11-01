@@ -23,7 +23,7 @@ const getPersistedQueryDefinition = async (query) => ({
 });
 
 const fetchQuery = async ({ query, variables, headers }) => {
-    const body = {
+    const body: any = {
         operationName: getOperationName(query),
         variables,
         query: print(query),
