@@ -2,12 +2,17 @@ const nextConfig = {
     eslint: {
         ignoreDuringBuilds: true,
     },
-    publicRuntimeConfig: {},
-    serverRuntimeConfig: {},
     compress: false,
     poweredByHeader: false,
     images: {
         formats: ['image/avif', 'image/webp'],
+    },
+    webpack(config, { isServer, webpack }) {
+        config.plugins.push(
+            new webpack.DefinePlugin({
+                'process.env.CLIENT': !isServer,
+            })
+        );
     },
     async headers() {
         const globalHeaders = [
