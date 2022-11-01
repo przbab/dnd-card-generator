@@ -17,9 +17,12 @@ jobs:
     - name: Install Node.js dependencies
       run: npm ci
     - name: Run eslint
+      if: always()
       run: npm run lint
     - name: Run stylelint
+      if: always()
       run: npm run stylelint
     - name: Run tests
+      if: always()
       run: npm run test
 
