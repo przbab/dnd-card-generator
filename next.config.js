@@ -13,6 +13,8 @@ const nextConfig = {
                 'process.env.CLIENT': !isServer,
             })
         );
+
+        return config;
     },
     async headers() {
         const globalHeaders = [
