@@ -13,15 +13,19 @@ permissions:
   contents: write
 
 jobs:
-  lint:
+  setup:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Install Node.js dependencies
       run: npm ci
-    - name: Run linters
-      uses: wearerequired/lint-action@v2
-      with:
-        eslint: true
-        stylelint: true
+  eslint:
+    needs: setup
+    - name: Run eslint
+      npm run eslint
+  stylelint:
+    needs: setup
+    - name: Run stylelint
+      npm run stylelint
+
