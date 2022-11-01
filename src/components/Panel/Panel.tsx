@@ -13,6 +13,4 @@ export function Panel({ children, className }: Panel.Props) {
     return <div className={classnames(styles.root, className)}>{children}</div>;
 }
 
-Panel.defaultProps = {
-    className: '',
-};
+Panel.defaultProps = {className: '',};
