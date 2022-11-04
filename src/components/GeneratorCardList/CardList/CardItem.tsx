@@ -1,12 +1,12 @@
 import React from 'react';
 import CardType from 'types/Card.type';
 
-export namespace CardItem {
-    export type Props = {
-        item: CardType;
-    };
-}
+type CardItemProps = {
+    item: CardType;
+};
 
-export function CardItem({ item }: CardItem.Props) {
+function CardItem({ item }: CardItemProps) {
     return <li>{item.name}</li>;
 }
+
+export default CardItem;

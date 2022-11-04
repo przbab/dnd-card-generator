@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Panel } from './Panel';
+import Panel from './Panel';
 
 describe('components', () => {
     describe('Panel', () => {
