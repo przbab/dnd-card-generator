@@ -8,7 +8,8 @@
         "airbnb",
         "plugin:jest/recommended",
         "prettier",
-        "plugin:react-hooks/recommended"
+        "plugin:react-hooks/recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "plugins": [
@@ -104,14 +105,18 @@
                 "skipTemplates": false
             }
         ],
-        "no-use-before-define": [
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": [
             "error",
             {
                 "classes": true,
                 "functions": false,
-                "variables": true
+                "variables": true,
+                "typedefs": false
             }
         ],
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": "error",
         "padding-line-between-statements": [
             "error",
             {
