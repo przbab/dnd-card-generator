@@ -14,8 +14,8 @@ export function SearchResults() {
             .then((result) => {
                 setSearchResults(result.data.spells);
             })
-            .catch((err) => {
-                console.error(err);
+            .catch(() => {
+                // TODO handle error state
             });
     }, [searchQuery]);
 

@@ -15,6 +15,7 @@ export function SearchPanel() {
 
             if (formRef.current) {
                 const formData = new FormData(formRef.current);
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const searchParams = new URLSearchParams(formData as any);
 
                 router.replace(`${linkToSearch()}?${searchParams.toString()}`, undefined, { shallow: true });

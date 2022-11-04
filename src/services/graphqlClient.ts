@@ -8,6 +8,24 @@ const PERSISTED_QUERY_NOT_FOUND_ERROR_CODE = 'PERSISTED_QUERY_NOT_FOUND';
 const SHOULD_USE_PERSISTED_QUERIES = true;
 const API_URL = 'https://www.dnd5eapi.co/graphql';
 
+type QueryBody = {
+    operationName: string;
+    query: string;
+    variables: Record<string, unknown>;
+    extensions?: {
+        persistedQuery?: {
+            version: number;
+            sha256Hash: string;
+        };
+    };
+};
+
+type QueryArguments = {
+    query: DocumentNode;
+    variables?: Record<string, unknown>;
+    headers?: Record<string, string>;
+};
+
 const isCryptoSupported = () =>
     !process.env.CLIENT ||
     (window.TextEncoder !== undefined && window.crypto !== undefined && window.crypto.subtle !== undefined); // Crypto.subtle is available only in secure contexts (HTTPS)
@@ -23,8 +41,8 @@ const getPersistedQueryDefinition = async (query) => ({
     },
 });
 
-const fetchQuery = async ({ query, variables, headers }) => {
-    const body: any = {
+const fetchQuery = async ({ query, variables, headers }: QueryArguments) => {
+    const body: QueryBody = {
         operationName: getOperationName(query),
         variables,
         query: print(query),
@@ -55,6 +73,7 @@ const fetchQuery = async ({ query, variables, headers }) => {
         // ignore error to not overshadow fetch error
     }
 
+    // eslint-disable-next-line no-console
     console.error(
         { status: response.status, query: print(query), variables, response: responseText },
         'GraphQL query failed'
@@ -63,7 +82,7 @@ const fetchQuery = async ({ query, variables, headers }) => {
     throw new Error('GraphQL query failed');
 };
 
-const fetchPersistedQuery = async ({ query, variables, headers }) => {
+const fetchPersistedQuery = async ({ query, variables, headers }: QueryArguments) => {
     const persistedQueryDefinition = await getPersistedQueryDefinition(query);
 
     const url = new URL(API_URL);
@@ -94,14 +113,8 @@ const fetchPersistedQuery = async ({ query, variables, headers }) => {
     throw new Error(`GraphQL persisted query failed ${url.href}`);
 };
 
-type queryType = {
-    query: DocumentNode;
-    variables?: Record<string, any>;
-    headers?: Record<string, string>;
-};
-
 const graphqlClient = {
-    query: async ({ query, variables, headers }: queryType) => {
+    query: async ({ query, variables, headers }: QueryArguments) => {
         try {
             if (shouldUsePersistedQuery()) {
                 // DO NOT REMOVE await HERE - it's required for fallback to fetchQuery to work
@@ -109,6 +122,7 @@ const graphqlClient = {
             }
         } catch (e) {
             if (e.message !== PERSISTED_QUERY_NOT_FOUND_ERROR_CODE) {
+                // eslint-disable-next-line no-console
                 console.info('Persisted query failed', e);
             }
         }
