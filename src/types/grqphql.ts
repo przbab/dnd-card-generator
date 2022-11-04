@@ -23,172 +23,172 @@ export type Scalars = {
     StringFilter: unknown;
 };
 
-export type AbilityBonus = {
-    ability_score: AbilityScore;
+export type AbilityBonusApiType = {
+    ability_score: AbilityScoreApiType;
     bonus: Scalars['Int'];
 };
 
-export type AbilityBonusChoice = {
+export type AbilityBonusChoiceApiType = {
     choose: Scalars['Int'];
-    from: AbilityBonusOptionSet;
+    from: AbilityBonusOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type AbilityBonusOption = {
-    ability_score: AbilityScore;
+export type AbilityBonusOptionApiType = {
+    ability_score: AbilityScoreApiType;
     bonus: Scalars['Int'];
     option_type: Scalars['String'];
 };
 
-export type AbilityBonusOptionSet = {
+export type AbilityBonusOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<AbilityBonusOption>;
+    options: Array<AbilityBonusOptionApiType>;
 };
 
-export type AbilityScore = {
+export type AbilityScoreApiType = {
     desc: Array<Scalars['String']>;
     full_name: Scalars['String'];
     index: Scalars['String'];
     name: Scalars['String'];
-    skills: Array<Skill>;
+    skills: Array<SkillApiType>;
 };
 
-export type AbilityScoreSkillsArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type AbilityScoreSkillsArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type AbilityScorePrerequisite = {
-    ability_score: AbilityScore;
+export type AbilityScorePrerequisiteApiType = {
+    ability_score: AbilityScoreApiType;
     minimum_score: Scalars['Int'];
 };
 
-export type Action = {
+export type ActionApiType = {
     action_name: Scalars['String'];
     count: Scalars['ActionCount'];
     type: Scalars['String'];
 };
 
-export type ActionDamage = {
-    choose: Maybe<Scalars['Int']>;
-    damage_dice: Maybe<Scalars['String']>;
-    damage_type: Maybe<DamageType>;
-    dc: Maybe<ActionDc>;
-    from: Maybe<DamageOptionSet>;
-    type: Maybe<Scalars['String']>;
+export type ActionDamageApiType = {
+    choose?: Maybe<Scalars['Int']>;
+    damage_dice?: Maybe<Scalars['String']>;
+    damage_type?: Maybe<DamageTypeApiType>;
+    dc?: Maybe<ActionDcApiType>;
+    from?: Maybe<DamageOptionSetApiType>;
+    type?: Maybe<Scalars['String']>;
 };
 
-export type ActionDc = {
-    success: DcSuccess;
-    type: AbilityScore;
+export type ActionDcApiType = {
+    success: DcSuccessApiType;
+    type: AbilityScoreApiType;
     value: Scalars['Int'];
 };
 
-export type ActionOption = {
+export type ActionOptionApiType = {
     action_name: Scalars['String'];
     count: Scalars['ActionCount'];
     option_type: Scalars['String'];
-    type: Maybe<Scalars['String']>;
+    type?: Maybe<Scalars['String']>;
 };
 
-export type Alignment = {
+export type AlignmentApiType = {
     abbreviation: Scalars['String'];
     desc: Scalars['String'];
     index: Scalars['String'];
     name: Scalars['String'];
 };
 
-export type Ammunition = IEquipment &
-    IEquipmentBase &
-    IGear & {
-        cost: Cost;
-        desc: Maybe<Array<Scalars['String']>>;
-        equipment_category: EquipmentCategory;
-        gear_category: EquipmentCategory;
+export type AmmunitionApiType = IEquipmentApiType &
+    IEquipmentBaseApiType &
+    IGearApiType & {
+        cost: CostApiType;
+        desc?: Maybe<Array<Scalars['String']>>;
+        equipment_category: EquipmentCategoryApiType;
+        gear_category: EquipmentCategoryApiType;
         index: Scalars['String'];
         name: Scalars['String'];
         quantity: Scalars['Int'];
-        weight: Maybe<Scalars['Float']>;
+        weight?: Maybe<Scalars['Float']>;
     };
 
-export type AreaOfEffect = {
+export type AreaOfEffectApiType = {
     size: Scalars['Int'];
-    type: AreaOfEffectType;
+    type: AreaOfEffectTypeApiType;
 };
 
-export type AreaOfEffectFilter = {
-    size: InputMaybe<Scalars['IntFilter']>;
-    type: InputMaybe<Scalars['AreaOfEffectTypeFilter']>;
+export type AreaOfEffectFilterApiType = {
+    size?: InputMaybe<Scalars['IntFilter']>;
+    type?: InputMaybe<Scalars['AreaOfEffectTypeFilter']>;
 };
 
-export enum AreaOfEffectType {
-    Cone = 'CONE',
-    Cube = 'CUBE',
-    Cylinder = 'CYLINDER',
-    Line = 'LINE',
-    Sphere = 'SPHERE',
+export enum AreaOfEffectTypeApiType {
+    ConeApiType = 'CONE',
+    CubeApiType = 'CUBE',
+    CylinderApiType = 'CYLINDER',
+    LineApiType = 'LINE',
+    SphereApiType = 'SPHERE',
 }
 
-export type Armor = IEquipment &
-    IEquipmentBase & {
-        armor_category: EquipmentCategory;
-        armor_class: ArmorClass;
-        cost: Cost;
-        desc: Maybe<Array<Scalars['String']>>;
-        equipment_category: EquipmentCategory;
+export type ArmorApiType = IEquipmentApiType &
+    IEquipmentBaseApiType & {
+        armor_category: EquipmentCategoryApiType;
+        armor_class: ArmorClassApiType;
+        cost: CostApiType;
+        desc?: Maybe<Array<Scalars['String']>>;
+        equipment_category: EquipmentCategoryApiType;
         index: Scalars['String'];
         name: Scalars['String'];
         stealth_disadvantage: Scalars['Boolean'];
         str_minimum: Scalars['Int'];
-        weight: Maybe<Scalars['Float']>;
+        weight?: Maybe<Scalars['Float']>;
     };
 
-export type ArmorClass = {
+export type ArmorClassApiType = {
     base: Scalars['Int'];
     dex_bonus: Scalars['Boolean'];
-    max_bonus: Maybe<Scalars['Int']>;
+    max_bonus?: Maybe<Scalars['Int']>;
 };
 
-export type Attack = {
-    damage: Maybe<Array<Damage>>;
-    dc: ActionDc;
+export type AttackApiType = {
+    damage?: Maybe<Array<DamageApiType>>;
+    dc: ActionDcApiType;
     name: Scalars['String'];
 };
 
-export type Background = {
-    bonds: StringChoice;
-    feature: BackgroundFeature;
-    flaws: StringChoice;
-    ideals: IdealChoice;
+export type BackgroundApiType = {
+    bonds: StringChoiceApiType;
+    feature: BackgroundFeatureApiType;
+    flaws: StringChoiceApiType;
+    ideals: IdealChoiceApiType;
     index: Scalars['String'];
-    language_options: LanguageChoice;
+    language_options: LanguageChoiceApiType;
     name: Scalars['String'];
-    personality_traits: StringChoice;
-    starting_equipment: Array<Quantity>;
-    starting_equipment_options: Array<EquipmentCategoryChoice>;
-    starting_proficiencies: Array<Proficiency>;
+    personality_traits: StringChoiceApiType;
+    starting_equipment: Array<QuantityApiType>;
+    starting_equipment_options: Array<EquipmentCategoryChoiceApiType>;
+    starting_proficiencies: Array<ProficiencyApiType>;
 };
 
-export type BackgroundStarting_EquipmentArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type BackgroundStarting_EquipmentArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type BackgroundStarting_ProficienciesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type BackgroundStarting_ProficienciesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type BackgroundFeature = {
+export type BackgroundFeatureApiType = {
     desc: Array<Scalars['String']>;
     name: Scalars['String'];
 };
 
-export type BarbarianSpecific = {
+export type BarbarianSpecificApiType = {
     brutal_critical_dice: Scalars['Int'];
     rage_count: Scalars['Int'];
     rage_damage_bonus: Scalars['Int'];
 };
 
-export type BardSpecific = {
+export type BardSpecificApiType = {
     bardic_inspiration_die: Scalars['Int'];
     magical_secrets_max_5: Scalars['Int'];
     magical_secrets_max_7: Scalars['Int'];
@@ -196,1633 +196,1639 @@ export type BardSpecific = {
     song_of_rest_die: Scalars['Int'];
 };
 
-export type BreathChoice = {
+export type BreathChoiceApiType = {
     choose: Scalars['Int'];
-    from: BreathOptionSet;
+    from: BreathOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type BreathOption = {
-    damage: Maybe<Array<Damage>>;
-    dc: ActionDc;
+export type BreathOptionApiType = {
+    damage?: Maybe<Array<DamageApiType>>;
+    dc: ActionDcApiType;
     name: Scalars['String'];
     option_type: Scalars['String'];
 };
 
-export type BreathOptionSet = {
+export type BreathOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<BreathOption>;
+    options: Array<BreathOptionApiType>;
 };
 
-export type BreathWeaponDamage = {
-    damage_at_character_level: Array<DamageAtLevel>;
-    damage_type: DamageType;
+export type BreathWeaponDamageApiType = {
+    damage_at_character_level: Array<DamageAtLevelApiType>;
+    damage_type: DamageTypeApiType;
 };
 
-export type BreathWeaponDc = {
-    success: DcSuccess;
-    type: AbilityScore;
+export type BreathWeaponDcApiType = {
+    success: DcSuccessApiType;
+    type: AbilityScoreApiType;
 };
 
-export type BreathWeaponTrait = {
-    area_of_effect: AreaOfEffect;
-    damage: Array<BreathWeaponDamage>;
-    dc: BreathWeaponDc;
+export type BreathWeaponTraitApiType = {
+    area_of_effect: AreaOfEffectApiType;
+    damage: Array<BreathWeaponDamageApiType>;
+    dc: BreathWeaponDcApiType;
     desc: Scalars['String'];
     name: Scalars['String'];
-    usage: BreathWeaponUsage;
+    usage: BreathWeaponUsageApiType;
 };
 
-export type BreathWeaponUsage = {
+export type BreathWeaponUsageApiType = {
     times: Scalars['Int'];
-    type: UsageType;
+    type: UsageTypeApiType;
 };
 
-export type Class = {
-    class_levels: Array<Level>;
+export type ClassApiType = {
+    class_levels: Array<LevelApiType>;
     hit_die: Scalars['Int'];
     index: Scalars['String'];
-    multi_classing: Multiclassing;
+    multi_classing: MulticlassingApiType;
     name: Scalars['String'];
-    proficiencies: Array<Proficiency>;
-    proficiency_choices: Array<ProficiencyChoice>;
-    saving_throws: Array<AbilityScore>;
-    spellcasting: Maybe<ClassSpellcasting>;
-    spells: Maybe<Array<Spell>>;
-    starting_equipment: Array<Quantity>;
-    starting_equipment_options: Array<StartingEquipmentChoice>;
-    subclasses: Array<Subclass>;
+    proficiencies: Array<ProficiencyApiType>;
+    proficiency_choices: Array<ProficiencyChoiceApiType>;
+    saving_throws: Array<AbilityScoreApiType>;
+    spellcasting?: Maybe<ClassSpellcastingApiType>;
+    spells?: Maybe<Array<SpellApiType>>;
+    starting_equipment: Array<QuantityApiType>;
+    starting_equipment_options: Array<StartingEquipmentChoiceApiType>;
+    subclasses: Array<SubclassApiType>;
 };
 
-export type ClassProficienciesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type ClassProficienciesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type ClassSpellsArgs = {
-    area_of_effect: InputMaybe<AreaOfEffectFilter>;
-    attack_type: InputMaybe<Scalars['SpellAttackTypeFilter']>;
-    casting_time: InputMaybe<Scalars['StringFilter']>;
-    concentration: InputMaybe<Scalars['Boolean']>;
-    damage_type: InputMaybe<Scalars['StringFilter']>;
-    dc_type: InputMaybe<Scalars['StringFilter']>;
-    level: InputMaybe<Scalars['IntFilter']>;
+export type ClassSpellsArgsApiType = {
+    area_of_effect?: InputMaybe<AreaOfEffectFilterApiType>;
+    attack_type?: InputMaybe<Scalars['SpellAttackTypeFilter']>;
+    casting_time?: InputMaybe<Scalars['StringFilter']>;
+    concentration?: InputMaybe<Scalars['Boolean']>;
+    damage_type?: InputMaybe<Scalars['StringFilter']>;
+    dc_type?: InputMaybe<Scalars['StringFilter']>;
+    level?: InputMaybe<Scalars['IntFilter']>;
     limit?: Scalars['Int'];
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<SpellOrder>;
-    range: InputMaybe<Scalars['StringFilter']>;
-    ritual: InputMaybe<Scalars['Boolean']>;
-    school: InputMaybe<Scalars['StringFilter']>;
-    skip: InputMaybe<Scalars['Int']>;
-    subclass: InputMaybe<Scalars['StringFilter']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<SpellOrderApiType>;
+    range?: InputMaybe<Scalars['StringFilter']>;
+    ritual?: InputMaybe<Scalars['Boolean']>;
+    school?: InputMaybe<Scalars['StringFilter']>;
+    skip?: InputMaybe<Scalars['Int']>;
+    subclass?: InputMaybe<Scalars['StringFilter']>;
 };
 
-export type ClassSubclassesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type ClassSubclassesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type ClassOrder = {
-    by: ClassOrderBy;
-    direction: OrderByDirection;
-    then_by: InputMaybe<ClassOrder>;
+export type ClassOrderApiType = {
+    by: ClassOrderByApiType;
+    direction?: OrderByDirectionApiType;
+    then_by?: InputMaybe<ClassOrderApiType>;
 };
 
-export enum ClassOrderBy {
-    HitDie = 'HIT_DIE',
-    Name = 'NAME',
+export enum ClassOrderByApiType {
+    HitDieApiType = 'HIT_DIE',
+    NameApiType = 'NAME',
 }
 
-export type ClassSpecific =
-    | BarbarianSpecific
-    | BardSpecific
-    | ClericSpecific
-    | DruidSpecific
-    | FighterSpecific
-    | MonkSpecific
-    | PaladinSpecific
-    | RangerSpecific
-    | RogueSpecific
-    | SorcererSpecific
-    | WarlockSpecific
-    | WizardSpecific;
+export type ClassSpecificApiType =
+    | BarbarianSpecificApiType
+    | BardSpecificApiType
+    | ClericSpecificApiType
+    | DruidSpecificApiType
+    | FighterSpecificApiType
+    | MonkSpecificApiType
+    | PaladinSpecificApiType
+    | RangerSpecificApiType
+    | RogueSpecificApiType
+    | SorcererSpecificApiType
+    | WarlockSpecificApiType
+    | WizardSpecificApiType;
 
-export type ClassSpellcasting = {
-    info: Array<SpellcastingInfo>;
+export type ClassSpellcastingApiType = {
+    info: Array<SpellcastingInfoApiType>;
     level: Scalars['Int'];
-    spellcasting_ability: AbilityScore;
+    spellcasting_ability: AbilityScoreApiType;
 };
 
-export type ClericSpecific = {
+export type ClericSpecificApiType = {
     channel_divinity_charges: Scalars['Int'];
     destroy_undead_cr: Scalars['Float'];
 };
 
-export type Condition = {
+export type ConditionApiType = {
     desc: Array<Scalars['String']>;
     index: Scalars['String'];
     name: Scalars['String'];
 };
 
-export type Cost = {
+export type CostApiType = {
     quantity: Scalars['Int'];
-    unit: Currency;
+    unit: CurrencyApiType;
 };
 
-export type CountedReferenceOption = {
+export type CountedReferenceOptionApiType = {
     count: Scalars['Int'];
-    of: IEquipment;
+    of: IEquipmentApiType;
     option_type: Scalars['String'];
-    prerequisites: Maybe<Array<ProficiencyPrerequisite>>;
+    prerequisites?: Maybe<Array<ProficiencyPrerequisiteApiType>>;
 };
 
-export enum Currency {
-    Cp = 'CP',
-    Gp = 'GP',
-    Sp = 'SP',
+export enum CurrencyApiType {
+    CpApiType = 'CP',
+    GpApiType = 'GP',
+    SpApiType = 'SP',
 }
 
-export type Damage = {
+export type DamageApiType = {
     damage_dice: Scalars['String'];
-    damage_type: DamageType;
+    damage_type: DamageTypeApiType;
 };
 
-export type DamageAtLevel = {
+export type DamageAtLevelApiType = {
     damage: Scalars['String'];
     level: Scalars['Int'];
 };
 
-export type DamageOption = {
+export type DamageOptionApiType = {
     damage_dice: Scalars['String'];
-    damage_type: DamageType;
-    notes: Maybe<Scalars['String']>;
+    damage_type: DamageTypeApiType;
+    notes?: Maybe<Scalars['String']>;
     option_type: Scalars['String'];
 };
 
-export type DamageOptionSet = {
+export type DamageOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<DamageOption>;
+    options: Array<DamageOptionApiType>;
 };
 
-export type DamageType = {
+export type DamageTypeApiType = {
     desc: Array<Scalars['String']>;
     index: Scalars['String'];
     name: Scalars['String'];
 };
 
-export enum DcSuccess {
-    Half = 'HALF',
-    None = 'NONE',
-    Other = 'OTHER',
+export enum DcSuccessApiType {
+    HalfApiType = 'HALF',
+    NoneApiType = 'NONE',
+    OtherApiType = 'OTHER',
 }
 
-export type DevotionSpecific = {
+export type DevotionSpecificApiType = {
     aura_range: Scalars['Int'];
 };
 
-export type Dice = {
+export type DiceApiType = {
     dice_count: Scalars['Int'];
     dice_value: Scalars['Int'];
 };
 
-export type DruidSpecific = {
+export type DruidSpecificApiType = {
     wild_shape_fly: Scalars['Boolean'];
     wild_shape_max_cr: Scalars['Float'];
     wild_shape_swim: Scalars['Boolean'];
 };
 
-export type EquipmentCategory = {
-    equipment: Array<IEquipmentBase>;
+export type EquipmentCategoryApiType = {
+    equipment: Array<IEquipmentBaseApiType>;
     index: Scalars['String'];
     name: Scalars['String'];
 };
 
-export type EquipmentCategoryEquipmentArgs = {
+export type EquipmentCategoryEquipmentArgsApiType = {
     limit?: Scalars['Int'];
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<EquipmentCategoryOrder>;
-    skip: InputMaybe<Scalars['Int']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<EquipmentCategoryOrderApiType>;
+    skip?: InputMaybe<Scalars['Int']>;
 };
 
-export type EquipmentCategoryChoice = {
+export type EquipmentCategoryChoiceApiType = {
     choose: Scalars['Int'];
-    from: EquipmentCategoryOptionSet;
+    from: EquipmentCategoryOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type EquipmentCategoryChoiceOption = {
-    choice: EquipmentCategoryChoice;
+export type EquipmentCategoryChoiceOptionApiType = {
+    choice: EquipmentCategoryChoiceApiType;
     option_type: Scalars['String'];
 };
 
-export type EquipmentCategoryOptionSet = {
-    equipment_category: EquipmentCategory;
+export type EquipmentCategoryOptionSetApiType = {
+    equipment_category: EquipmentCategoryApiType;
     option_set_type: Scalars['String'];
 };
 
-export type EquipmentCategoryOrder = {
-    by: EquipmentCategoryOrderBy;
-    direction: OrderByDirection;
-    then_by: InputMaybe<EquipmentCategoryOrder>;
+export type EquipmentCategoryOrderApiType = {
+    by: EquipmentCategoryOrderByApiType;
+    direction?: OrderByDirectionApiType;
+    then_by?: InputMaybe<EquipmentCategoryOrderApiType>;
 };
 
-export enum EquipmentCategoryOrderBy {
-    Name = 'NAME',
-    Weight = 'WEIGHT',
+export enum EquipmentCategoryOrderByApiType {
+    NameApiType = 'NAME',
+    WeightApiType = 'WEIGHT',
 }
 
-export type EquipmentMultipleItem = CountedReferenceOption | EquipmentCategoryChoiceOption;
+export type EquipmentMultipleItemApiType = CountedReferenceOptionApiType | EquipmentCategoryChoiceOptionApiType;
 
-export type EquipmentMultipleOption = {
-    items: Array<EquipmentMultipleItem>;
+export type EquipmentMultipleOptionApiType = {
+    items: Array<EquipmentMultipleItemApiType>;
     option_type: Scalars['String'];
 };
 
-export type EquipmentOption = CountedReferenceOption | EquipmentCategoryChoiceOption | EquipmentMultipleOption;
+export type EquipmentOptionApiType =
+    | CountedReferenceOptionApiType
+    | EquipmentCategoryChoiceOptionApiType
+    | EquipmentMultipleOptionApiType;
 
-export type EquipmentOptionSet = {
+export type EquipmentOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<EquipmentOption>;
+    options: Array<EquipmentOptionApiType>;
 };
 
-export type EquipmentOrder = {
-    by: EquipmentOrderBy;
-    direction: OrderByDirection;
-    then_by: InputMaybe<EquipmentOrder>;
+export type EquipmentOrderApiType = {
+    by: EquipmentOrderByApiType;
+    direction?: OrderByDirectionApiType;
+    then_by?: InputMaybe<EquipmentOrderApiType>;
 };
 
-export enum EquipmentOrderBy {
-    EquipmentCategory = 'EQUIPMENT_CATEGORY',
-    Name = 'NAME',
-    Weight = 'WEIGHT',
+export enum EquipmentOrderByApiType {
+    EquipmentCategoryApiType = 'EQUIPMENT_CATEGORY',
+    NameApiType = 'NAME',
+    WeightApiType = 'WEIGHT',
 }
 
-export type ExpertiseChoice = {
+export type ExpertiseChoiceApiType = {
     choose: Scalars['Int'];
-    from: ExpertiseOptionSet;
+    from: ExpertiseOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type ExpertiseMultipleOption = {
-    items: Array<ProficiencyOption>;
+export type ExpertiseMultipleOptionApiType = {
+    items: Array<ProficiencyOptionApiType>;
     option_type: Scalars['String'];
 };
 
-export type ExpertiseOption = ExpertiseMultipleOption | ProficiencyChoiceOption | ProficiencyReferenceOption;
+export type ExpertiseOptionApiType =
+    | ExpertiseMultipleOptionApiType
+    | ProficiencyChoiceOptionApiType
+    | ProficiencyReferenceOptionApiType;
 
-export type ExpertiseOptionSet = {
+export type ExpertiseOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<ExpertiseOption>;
+    options: Array<ExpertiseOptionApiType>;
 };
 
-export type Feat = {
+export type FeatApiType = {
     desc: Array<Scalars['String']>;
     index: Scalars['String'];
     name: Scalars['String'];
-    prerequisites: Array<AbilityScorePrerequisite>;
+    prerequisites: Array<AbilityScorePrerequisiteApiType>;
 };
 
-export type Feature = {
-    class: Class;
+export type FeatureApiType = {
+    class: ClassApiType;
     desc: Array<Scalars['String']>;
-    feature_specific: Maybe<FeatureSpecific>;
+    feature_specific?: Maybe<FeatureSpecificApiType>;
     index: Scalars['String'];
     level: Scalars['Int'];
     name: Scalars['String'];
-    parent: Maybe<Feature>;
-    prerequisites: Array<FeaturePrerequisite>;
-    reference: Maybe<Scalars['String']>;
-    subclass: Maybe<Subclass>;
+    parent?: Maybe<FeatureApiType>;
+    prerequisites: Array<FeaturePrerequisiteApiType>;
+    reference?: Maybe<Scalars['String']>;
+    subclass?: Maybe<SubclassApiType>;
 };
 
-export type FeatureChoice = {
+export type FeatureChoiceApiType = {
     choose: Scalars['Int'];
-    from: FeatureOptionSet;
+    from: FeatureOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type FeatureOption = {
-    item: Feature;
+export type FeatureOptionApiType = {
+    item: FeatureApiType;
     option_type: Scalars['String'];
 };
 
-export type FeatureOptionSet = {
+export type FeatureOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<FeatureOption>;
+    options: Array<FeatureOptionApiType>;
 };
 
-export type FeatureOrder = {
-    by: FeatureOrderBy;
-    direction: OrderByDirection;
-    then_by: InputMaybe<FeatureOrder>;
+export type FeatureOrderApiType = {
+    by: FeatureOrderByApiType;
+    direction?: OrderByDirectionApiType;
+    then_by?: InputMaybe<FeatureOrderApiType>;
 };
 
-export enum FeatureOrderBy {
-    Class = 'CLASS',
-    Level = 'LEVEL',
-    Name = 'NAME',
-    Subclass = 'SUBCLASS',
+export enum FeatureOrderByApiType {
+    ClassApiType = 'CLASS',
+    LevelApiType = 'LEVEL',
+    NameApiType = 'NAME',
+    SubclassApiType = 'SUBCLASS',
 }
 
-export type FeaturePrerequisite = {
-    feature: Maybe<Feature>;
-    level: Maybe<Scalars['Int']>;
-    spell: Maybe<Spell>;
+export type FeaturePrerequisiteApiType = {
+    feature?: Maybe<FeatureApiType>;
+    level?: Maybe<Scalars['Int']>;
+    spell?: Maybe<SpellApiType>;
     type: Scalars['String'];
 };
 
-export type FeatureSpecific = {
-    expertise_options: Maybe<ExpertiseChoice>;
-    invocations: Maybe<Array<Feature>>;
-    subfeature_options: Maybe<FeatureChoice>;
+export type FeatureSpecificApiType = {
+    expertise_options?: Maybe<ExpertiseChoiceApiType>;
+    invocations?: Maybe<Array<FeatureApiType>>;
+    subfeature_options?: Maybe<FeatureChoiceApiType>;
 };
 
-export type FighterSpecific = {
+export type FighterSpecificApiType = {
     action_surges: Scalars['Int'];
     extra_attacks: Scalars['Int'];
     indomitable_uses: Scalars['Int'];
 };
 
-export type Gear = IEquipment &
-    IEquipmentBase &
-    IGear & {
-        cost: Cost;
-        desc: Maybe<Array<Scalars['String']>>;
-        equipment_category: EquipmentCategory;
-        gear_category: EquipmentCategory;
+export type GearApiType = IEquipmentApiType &
+    IEquipmentBaseApiType &
+    IGearApiType & {
+        cost: CostApiType;
+        desc?: Maybe<Array<Scalars['String']>>;
+        equipment_category: EquipmentCategoryApiType;
+        gear_category: EquipmentCategoryApiType;
         index: Scalars['String'];
         name: Scalars['String'];
-        weight: Maybe<Scalars['Float']>;
+        weight?: Maybe<Scalars['Float']>;
     };
 
-export type HealingAtLevel = {
+export type HealingAtLevelApiType = {
     healing: Scalars['String'];
     level: Scalars['Int'];
 };
 
-export type IEquipment = {
-    cost: Cost;
-    desc: Maybe<Array<Scalars['String']>>;
-    equipment_category: EquipmentCategory;
+export type IEquipmentApiType = {
+    cost: CostApiType;
+    desc?: Maybe<Array<Scalars['String']>>;
+    equipment_category: EquipmentCategoryApiType;
     index: Scalars['String'];
     name: Scalars['String'];
-    weight: Maybe<Scalars['Float']>;
+    weight?: Maybe<Scalars['Float']>;
 };
 
-export type IEquipmentBase = {
-    desc: Maybe<Array<Scalars['String']>>;
-    equipment_category: EquipmentCategory;
+export type IEquipmentBaseApiType = {
+    desc?: Maybe<Array<Scalars['String']>>;
+    equipment_category: EquipmentCategoryApiType;
     index: Scalars['String'];
     name: Scalars['String'];
 };
 
-export type IGear = {
-    cost: Cost;
-    desc: Maybe<Array<Scalars['String']>>;
-    equipment_category: EquipmentCategory;
-    gear_category: EquipmentCategory;
+export type IGearApiType = {
+    cost: CostApiType;
+    desc?: Maybe<Array<Scalars['String']>>;
+    equipment_category: EquipmentCategoryApiType;
+    gear_category: EquipmentCategoryApiType;
     index: Scalars['String'];
     name: Scalars['String'];
-    weight: Maybe<Scalars['Float']>;
+    weight?: Maybe<Scalars['Float']>;
 };
 
-export type IdealChoice = {
+export type IdealChoiceApiType = {
     choose: Scalars['Int'];
-    from: IdealOptionSet;
+    from: IdealOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type IdealOption = {
-    alignments: Array<Alignment>;
+export type IdealOptionApiType = {
+    alignments: Array<AlignmentApiType>;
     desc: Scalars['String'];
     option_type: Scalars['String'];
 };
 
-export type IdealOptionSet = {
+export type IdealOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<IdealOption>;
+    options: Array<IdealOptionApiType>;
 };
 
-export type Language = {
-    desc: Maybe<Scalars['String']>;
+export type LanguageApiType = {
+    desc?: Maybe<Scalars['String']>;
     index: Scalars['String'];
     name: Scalars['String'];
-    script: Maybe<LanguageScript>;
-    type: LanguageType;
+    script?: Maybe<LanguageScriptApiType>;
+    type: LanguageTypeApiType;
     typical_speakers: Array<Scalars['String']>;
 };
 
-export type LanguageChoice = {
+export type LanguageChoiceApiType = {
     choose: Scalars['Int'];
-    from: LanguageOptionSet;
+    from: LanguageOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type LanguageOption = {
-    item: Language;
+export type LanguageOptionApiType = {
+    item: LanguageApiType;
     option_type: Scalars['String'];
 };
 
-export type LanguageOptionSet = {
+export type LanguageOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<LanguageOption>;
+    options: Array<LanguageOptionApiType>;
 };
 
-export type LanguageOrder = {
-    by: LanguageOrderBy;
-    direction: OrderByDirection;
-    then_by: InputMaybe<LanguageOrder>;
+export type LanguageOrderApiType = {
+    by: LanguageOrderByApiType;
+    direction?: OrderByDirectionApiType;
+    then_by?: InputMaybe<LanguageOrderApiType>;
 };
 
-export enum LanguageOrderBy {
-    Name = 'NAME',
-    Script = 'SCRIPT',
-    Type = 'TYPE',
+export enum LanguageOrderByApiType {
+    NameApiType = 'NAME',
+    ScriptApiType = 'SCRIPT',
+    TypeApiType = 'TYPE',
 }
 
-export enum LanguageScript {
-    Celestial = 'CELESTIAL',
-    Common = 'COMMON',
-    Draconic = 'DRACONIC',
-    Dwarvish = 'DWARVISH',
-    Elvish = 'ELVISH',
-    Infernal = 'INFERNAL',
+export enum LanguageScriptApiType {
+    CelestialApiType = 'CELESTIAL',
+    CommonApiType = 'COMMON',
+    DraconicApiType = 'DRACONIC',
+    DwarvishApiType = 'DWARVISH',
+    ElvishApiType = 'ELVISH',
+    InfernalApiType = 'INFERNAL',
 }
 
-export enum LanguageType {
-    Exotic = 'EXOTIC',
-    Standard = 'STANDARD',
+export enum LanguageTypeApiType {
+    ExoticApiType = 'EXOTIC',
+    StandardApiType = 'STANDARD',
 }
 
-export type LegendaryAction = {
-    damage: Maybe<Array<Damage>>;
-    dc: Maybe<ActionDc>;
+export type LegendaryActionApiType = {
+    damage?: Maybe<Array<DamageApiType>>;
+    dc?: Maybe<ActionDcApiType>;
     desc: Scalars['String'];
     name: Scalars['String'];
 };
 
-export type Level = {
-    ability_score_bonuses: Maybe<Scalars['Int']>;
-    class: Class;
-    class_specific: Maybe<ClassSpecific>;
-    features: Array<Feature>;
+export type LevelApiType = {
+    ability_score_bonuses?: Maybe<Scalars['Int']>;
+    class: ClassApiType;
+    class_specific?: Maybe<ClassSpecificApiType>;
+    features: Array<FeatureApiType>;
     index: Scalars['String'];
     level: Scalars['Int'];
-    prof_bonus: Maybe<Scalars['Int']>;
-    spellcasting: Maybe<LevelSpellcasting>;
-    subclass: Maybe<Subclass>;
-    subclass_specific: Maybe<SubclassSpecific>;
+    prof_bonus?: Maybe<Scalars['Int']>;
+    spellcasting?: Maybe<LevelSpellcastingApiType>;
+    subclass?: Maybe<SubclassApiType>;
+    subclass_specific?: Maybe<SubclassSpecificApiType>;
 };
 
-export type LevelFeaturesArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type LevelFeaturesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type LevelOrder = {
-    by: LevelOrderBy;
-    direction: OrderByDirection;
-    then_by: InputMaybe<LevelOrder>;
+export type LevelOrderApiType = {
+    by: LevelOrderByApiType;
+    direction?: OrderByDirectionApiType;
+    then_by?: InputMaybe<LevelOrderApiType>;
 };
 
-export enum LevelOrderBy {
-    AbilityScoreBonuses = 'ABILITY_SCORE_BONUSES',
-    Class = 'CLASS',
-    Level = 'LEVEL',
-    ProfBonus = 'PROF_BONUS',
-    Subclass = 'SUBCLASS',
+export enum LevelOrderByApiType {
+    AbilityScoreBonusesApiType = 'ABILITY_SCORE_BONUSES',
+    ClassApiType = 'CLASS',
+    LevelApiType = 'LEVEL',
+    ProfBonusApiType = 'PROF_BONUS',
+    SubclassApiType = 'SUBCLASS',
 }
 
-export type LevelSpellcasting = {
-    cantrips_known: Maybe<Scalars['Int']>;
-    spell_slots_level_1: Maybe<Scalars['Int']>;
-    spell_slots_level_2: Maybe<Scalars['Int']>;
-    spell_slots_level_3: Maybe<Scalars['Int']>;
-    spell_slots_level_4: Maybe<Scalars['Int']>;
-    spell_slots_level_5: Maybe<Scalars['Int']>;
-    spell_slots_level_6: Maybe<Scalars['Int']>;
-    spell_slots_level_7: Maybe<Scalars['Int']>;
-    spell_slots_level_8: Maybe<Scalars['Int']>;
-    spell_slots_level_9: Maybe<Scalars['Int']>;
-    spells_known: Maybe<Scalars['Int']>;
+export type LevelSpellcastingApiType = {
+    cantrips_known?: Maybe<Scalars['Int']>;
+    spell_slots_level_1?: Maybe<Scalars['Int']>;
+    spell_slots_level_2?: Maybe<Scalars['Int']>;
+    spell_slots_level_3?: Maybe<Scalars['Int']>;
+    spell_slots_level_4?: Maybe<Scalars['Int']>;
+    spell_slots_level_5?: Maybe<Scalars['Int']>;
+    spell_slots_level_6?: Maybe<Scalars['Int']>;
+    spell_slots_level_7?: Maybe<Scalars['Int']>;
+    spell_slots_level_8?: Maybe<Scalars['Int']>;
+    spell_slots_level_9?: Maybe<Scalars['Int']>;
+    spells_known?: Maybe<Scalars['Int']>;
 };
 
-export type LoreSpecific = {
+export type LoreSpecificApiType = {
     additional_magical_secrets_max_lvl: Scalars['Int'];
 };
 
-export type MagicItem = IEquipmentBase & {
+export type MagicItemApiType = IEquipmentBaseApiType & {
     desc: Array<Scalars['String']>;
-    equipment_category: EquipmentCategory;
+    equipment_category: EquipmentCategoryApiType;
     index: Scalars['String'];
     name: Scalars['String'];
-    rarity: MagicItemRarity;
+    rarity: MagicItemRarityApiType;
 };
 
-export type MagicItemOrder = {
-    by: MagicItemOrderBy;
-    direction: OrderByDirection;
-    then_by: InputMaybe<MagicItemOrder>;
+export type MagicItemOrderApiType = {
+    by: MagicItemOrderByApiType;
+    direction?: OrderByDirectionApiType;
+    then_by?: InputMaybe<MagicItemOrderApiType>;
 };
 
-export enum MagicItemOrderBy {
-    EquipmentCategory = 'EQUIPMENT_CATEGORY',
-    Name = 'NAME',
+export enum MagicItemOrderByApiType {
+    EquipmentCategoryApiType = 'EQUIPMENT_CATEGORY',
+    NameApiType = 'NAME',
 }
 
-export enum MagicItemRarity {
-    Artifact = 'ARTIFACT',
-    Common = 'COMMON',
-    Legendary = 'LEGENDARY',
-    Rare = 'RARE',
-    Uncommon = 'UNCOMMON',
-    Varies = 'VARIES',
-    VeryRare = 'VERY_RARE',
+export enum MagicItemRarityApiType {
+    ArtifactApiType = 'ARTIFACT',
+    CommonApiType = 'COMMON',
+    LegendaryApiType = 'LEGENDARY',
+    RareApiType = 'RARE',
+    UncommonApiType = 'UNCOMMON',
+    VariesApiType = 'VARIES',
+    VeryRareApiType = 'VERY_RARE',
 }
 
-export type MagicSchool = {
+export type MagicSchoolApiType = {
     desc: Scalars['String'];
     index: Scalars['String'];
     name: Scalars['String'];
-    spells: Array<Spell>;
+    spells: Array<SpellApiType>;
 };
 
-export type MagicSchoolSpellsArgs = {
-    area_of_effect: InputMaybe<AreaOfEffectFilter>;
-    attack_type: InputMaybe<Scalars['SpellAttackTypeFilter']>;
-    casting_time: InputMaybe<Scalars['StringFilter']>;
-    class: InputMaybe<Scalars['StringFilter']>;
-    concentration: InputMaybe<Scalars['Boolean']>;
-    damage_type: InputMaybe<Scalars['StringFilter']>;
-    dc_type: InputMaybe<Scalars['StringFilter']>;
-    level: InputMaybe<Scalars['IntFilter']>;
+export type MagicSchoolSpellsArgsApiType = {
+    area_of_effect?: InputMaybe<AreaOfEffectFilterApiType>;
+    attack_type?: InputMaybe<Scalars['SpellAttackTypeFilter']>;
+    casting_time?: InputMaybe<Scalars['StringFilter']>;
+    class?: InputMaybe<Scalars['StringFilter']>;
+    concentration?: InputMaybe<Scalars['Boolean']>;
+    damage_type?: InputMaybe<Scalars['StringFilter']>;
+    dc_type?: InputMaybe<Scalars['StringFilter']>;
+    level?: InputMaybe<Scalars['IntFilter']>;
     limit?: Scalars['Int'];
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<SpellOrder>;
-    range: InputMaybe<Scalars['StringFilter']>;
-    ritual: InputMaybe<Scalars['Boolean']>;
-    skip: InputMaybe<Scalars['Int']>;
-    subclass: InputMaybe<Scalars['StringFilter']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<SpellOrderApiType>;
+    range?: InputMaybe<Scalars['StringFilter']>;
+    ritual?: InputMaybe<Scalars['Boolean']>;
+    skip?: InputMaybe<Scalars['Int']>;
+    subclass?: InputMaybe<Scalars['StringFilter']>;
 };
 
-export type MonkSpecific = {
+export type MonkSpecificApiType = {
     ki_points: Scalars['Int'];
-    martial_arts: Dice;
+    martial_arts: DiceApiType;
     unarmored_movement: Scalars['Int'];
 };
 
-export type Monster = {
-    actions: Maybe<Array<MonsterAction>>;
+export type MonsterApiType = {
+    actions?: Maybe<Array<MonsterActionApiType>>;
     armor_class: Scalars['Int'];
     challenge_rating: Scalars['Float'];
     charisma: Scalars['Int'];
-    condition_immunities: Array<Condition>;
+    condition_immunities: Array<ConditionApiType>;
     constitution: Scalars['Int'];
     damage_immunities: Array<Scalars['String']>;
     damage_resistances: Array<Scalars['String']>;
     damage_vulnerabilities: Array<Scalars['String']>;
-    desc: Maybe<Scalars['String']>;
+    desc?: Maybe<Scalars['String']>;
     dexterity: Scalars['Int'];
-    forms: Maybe<Array<Monster>>;
+    forms?: Maybe<Array<MonsterApiType>>;
     hit_dice: Scalars['String'];
     hit_points: Scalars['Int'];
     hit_points_roll: Scalars['String'];
-    image: Maybe<Scalars['String']>;
+    image?: Maybe<Scalars['String']>;
     index: Scalars['String'];
     intelligence: Scalars['Int'];
     languages: Scalars['String'];
-    legendary_actions: Maybe<Array<LegendaryAction>>;
+    legendary_actions?: Maybe<Array<LegendaryActionApiType>>;
     name: Scalars['String'];
-    proficiencies: Array<MonsterProficiency>;
-    reactions: Maybe<Array<Reaction>>;
-    senses: Senses;
-    size: Size;
-    special_abilities: Maybe<Array<SpecialAbility>>;
-    speed: MonsterSpeed;
+    proficiencies: Array<MonsterProficiencyApiType>;
+    reactions?: Maybe<Array<ReactionApiType>>;
+    senses: SensesApiType;
+    size: SizeApiType;
+    special_abilities?: Maybe<Array<SpecialAbilityApiType>>;
+    speed: MonsterSpeedApiType;
     strength: Scalars['Int'];
-    subtype: Maybe<MonsterSubtype>;
-    type: MonsterType;
+    subtype?: Maybe<MonsterSubtypeApiType>;
+    type: MonsterTypeApiType;
     wisdom: Scalars['Int'];
     xp: Scalars['Int'];
 };
 
-export type MonsterAction = {
-    action_options: Maybe<MonsterActionChoice>;
-    actions: Maybe<Array<Action>>;
-    attack_bonus: Maybe<Scalars['Int']>;
-    attacks: Maybe<Array<Attack>>;
-    damage: Maybe<Array<ActionDamage>>;
-    dc: Maybe<ActionDc>;
+export type MonsterActionApiType = {
+    action_options?: Maybe<MonsterActionChoiceApiType>;
+    actions?: Maybe<Array<ActionApiType>>;
+    attack_bonus?: Maybe<Scalars['Int']>;
+    attacks?: Maybe<Array<AttackApiType>>;
+    damage?: Maybe<Array<ActionDamageApiType>>;
+    dc?: Maybe<ActionDcApiType>;
     desc: Scalars['String'];
-    multiattack_type: Maybe<Scalars['String']>;
+    multiattack_type?: Maybe<Scalars['String']>;
     name: Scalars['String'];
-    options: Maybe<BreathChoice>;
-    usage: Maybe<Usage>;
+    options?: Maybe<BreathChoiceApiType>;
+    usage?: Maybe<UsageApiType>;
 };
 
-export type MonsterActionChoice = {
+export type MonsterActionChoiceApiType = {
     choose: Scalars['Int'];
-    from: MonsterActionOptionSet;
+    from: MonsterActionOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type MonsterActionOption = ActionOption | MultipleActionOption;
+export type MonsterActionOptionApiType = ActionOptionApiType | MultipleActionOptionApiType;
 
-export type MonsterActionOptionSet = {
+export type MonsterActionOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<MonsterActionOption>;
+    options: Array<MonsterActionOptionApiType>;
 };
 
-export type MonsterOrder = {
-    by: MonsterOrderBy;
-    direction: OrderByDirection;
-    then_by: InputMaybe<MonsterOrder>;
+export type MonsterOrderApiType = {
+    by: MonsterOrderByApiType;
+    direction?: OrderByDirectionApiType;
+    then_by?: InputMaybe<MonsterOrderApiType>;
 };
 
-export enum MonsterOrderBy {
-    ArmorClass = 'ARMOR_CLASS',
-    ChallengeRating = 'CHALLENGE_RATING',
-    Charisma = 'CHARISMA',
-    Constitution = 'CONSTITUTION',
-    Dexterity = 'DEXTERITY',
-    Intelligence = 'INTELLIGENCE',
-    Name = 'NAME',
-    Size = 'SIZE',
-    Strength = 'STRENGTH',
-    Subtype = 'SUBTYPE',
-    Type = 'TYPE',
-    Wisdom = 'WISDOM',
-    Xp = 'XP',
+export enum MonsterOrderByApiType {
+    ArmorClassApiType = 'ARMOR_CLASS',
+    ChallengeRatingApiType = 'CHALLENGE_RATING',
+    CharismaApiType = 'CHARISMA',
+    ConstitutionApiType = 'CONSTITUTION',
+    DexterityApiType = 'DEXTERITY',
+    IntelligenceApiType = 'INTELLIGENCE',
+    NameApiType = 'NAME',
+    SizeApiType = 'SIZE',
+    StrengthApiType = 'STRENGTH',
+    SubtypeApiType = 'SUBTYPE',
+    TypeApiType = 'TYPE',
+    WisdomApiType = 'WISDOM',
+    XpApiType = 'XP',
 }
 
-export type MonsterProficiency = {
-    proficiency: Proficiency;
+export type MonsterProficiencyApiType = {
+    proficiency: ProficiencyApiType;
     value: Scalars['Int'];
 };
 
-export type MonsterSpeed = {
-    burrow: Maybe<Scalars['String']>;
-    climb: Maybe<Scalars['String']>;
-    fly: Maybe<Scalars['String']>;
-    hover: Maybe<Scalars['Boolean']>;
-    swim: Maybe<Scalars['String']>;
-    walk: Maybe<Scalars['String']>;
+export type MonsterSpeedApiType = {
+    burrow?: Maybe<Scalars['String']>;
+    climb?: Maybe<Scalars['String']>;
+    fly?: Maybe<Scalars['String']>;
+    hover?: Maybe<Scalars['Boolean']>;
+    swim?: Maybe<Scalars['String']>;
+    walk?: Maybe<Scalars['String']>;
 };
 
-export type MonsterSpell = {
-    spell: Spell;
-    usage: Maybe<Usage>;
+export type MonsterSpellApiType = {
+    spell: SpellApiType;
+    usage?: Maybe<UsageApiType>;
 };
 
-export type MonsterSpellSlot = {
+export type MonsterSpellSlotApiType = {
     level: Scalars['Int'];
     slots: Scalars['Int'];
 };
 
-export type MonsterSpellcasting = {
-    ability: AbilityScore;
-    components_required: Maybe<Array<SpellComponent>>;
-    dc: Maybe<Scalars['Int']>;
-    level: Maybe<Scalars['Int']>;
-    modifier: Maybe<Scalars['Int']>;
-    school: Maybe<Scalars['String']>;
-    slots: Maybe<Array<MonsterSpellSlot>>;
-    spells: Array<MonsterSpell>;
+export type MonsterSpellcastingApiType = {
+    ability: AbilityScoreApiType;
+    components_required?: Maybe<Array<SpellComponentApiType>>;
+    dc?: Maybe<Scalars['Int']>;
+    level?: Maybe<Scalars['Int']>;
+    modifier?: Maybe<Scalars['Int']>;
+    school?: Maybe<Scalars['String']>;
+    slots?: Maybe<Array<MonsterSpellSlotApiType>>;
+    spells: Array<MonsterSpellApiType>;
 };
 
-export enum MonsterSubtype {
-    AnyRace = 'ANY_RACE',
-    Demon = 'DEMON',
-    Devil = 'DEVIL',
-    Dwarf = 'DWARF',
-    Elf = 'ELF',
-    Gnoll = 'GNOLL',
-    Gnome = 'GNOME',
-    Goblinoid = 'GOBLINOID',
-    Grimlock = 'GRIMLOCK',
-    Human = 'HUMAN',
-    Kobold = 'KOBOLD',
-    Lizardfolk = 'LIZARDFOLK',
-    Merfolk = 'MERFOLK',
-    Orc = 'ORC',
-    Sahuagin = 'SAHUAGIN',
-    Shapechanger = 'SHAPECHANGER',
-    Titan = 'TITAN',
+export enum MonsterSubtypeApiType {
+    AnyRaceApiType = 'ANY_RACE',
+    DemonApiType = 'DEMON',
+    DevilApiType = 'DEVIL',
+    DwarfApiType = 'DWARF',
+    ElfApiType = 'ELF',
+    GnollApiType = 'GNOLL',
+    GnomeApiType = 'GNOME',
+    GoblinoidApiType = 'GOBLINOID',
+    GrimlockApiType = 'GRIMLOCK',
+    HumanApiType = 'HUMAN',
+    KoboldApiType = 'KOBOLD',
+    LizardfolkApiType = 'LIZARDFOLK',
+    MerfolkApiType = 'MERFOLK',
+    OrcApiType = 'ORC',
+    SahuaginApiType = 'SAHUAGIN',
+    ShapechangerApiType = 'SHAPECHANGER',
+    TitanApiType = 'TITAN',
 }
 
-export enum MonsterType {
-    Aberration = 'ABERRATION',
-    Beast = 'BEAST',
-    Celestial = 'CELESTIAL',
-    Construct = 'CONSTRUCT',
-    Dragon = 'DRAGON',
-    Elemental = 'ELEMENTAL',
-    Fey = 'FEY',
-    Fiend = 'FIEND',
-    Giant = 'GIANT',
-    Humanoid = 'HUMANOID',
-    Monstrosity = 'MONSTROSITY',
-    Ooze = 'OOZE',
-    Plant = 'PLANT',
-    Swarm = 'SWARM',
-    Undead = 'UNDEAD',
+export enum MonsterTypeApiType {
+    AberrationApiType = 'ABERRATION',
+    BeastApiType = 'BEAST',
+    CelestialApiType = 'CELESTIAL',
+    ConstructApiType = 'CONSTRUCT',
+    DragonApiType = 'DRAGON',
+    ElementalApiType = 'ELEMENTAL',
+    FeyApiType = 'FEY',
+    FiendApiType = 'FIEND',
+    GiantApiType = 'GIANT',
+    HumanoidApiType = 'HUMANOID',
+    MonstrosityApiType = 'MONSTROSITY',
+    OozeApiType = 'OOZE',
+    PlantApiType = 'PLANT',
+    SwarmApiType = 'SWARM',
+    UndeadApiType = 'UNDEAD',
 }
 
-export type Multiclassing = {
-    prerequisite_options: Maybe<PrerequisiteChoice>;
-    prerequisites: Maybe<Array<AbilityScorePrerequisite>>;
-    proficiencies: Array<Proficiency>;
-    proficiency_choices: Maybe<Array<ProficiencyChoice>>;
+export type MulticlassingApiType = {
+    prerequisite_options?: Maybe<PrerequisiteChoiceApiType>;
+    prerequisites?: Maybe<Array<AbilityScorePrerequisiteApiType>>;
+    proficiencies: Array<ProficiencyApiType>;
+    proficiency_choices?: Maybe<Array<ProficiencyChoiceApiType>>;
 };
 
-export type MultipleActionOption = {
-    items: Array<ActionOption>;
+export type MultipleActionOptionApiType = {
+    items: Array<ActionOptionApiType>;
     option_type: Scalars['String'];
 };
 
-export enum OrderByDirection {
-    Ascending = 'ASCENDING',
-    Descending = 'DESCENDING',
+export enum OrderByDirectionApiType {
+    AscendingApiType = 'ASCENDING',
+    DescendingApiType = 'DESCENDING',
 }
 
-export type Pack = IEquipment &
-    IEquipmentBase &
-    IGear & {
-        contents: Array<PackQuantity>;
-        cost: Cost;
-        desc: Maybe<Array<Scalars['String']>>;
-        equipment_category: EquipmentCategory;
-        gear_category: EquipmentCategory;
+export type PackApiType = IEquipmentApiType &
+    IEquipmentBaseApiType &
+    IGearApiType & {
+        contents: Array<PackQuantityApiType>;
+        cost: CostApiType;
+        desc?: Maybe<Array<Scalars['String']>>;
+        equipment_category: EquipmentCategoryApiType;
+        gear_category: EquipmentCategoryApiType;
         index: Scalars['String'];
         name: Scalars['String'];
-        weight: Maybe<Scalars['Float']>;
+        weight?: Maybe<Scalars['Float']>;
     };
 
-export type PackQuantity = {
-    item: IEquipment;
+export type PackQuantityApiType = {
+    item: IEquipmentApiType;
     quantity: Scalars['Int'];
 };
 
-export type PaladinSpecific = {
+export type PaladinSpecificApiType = {
     aura_range: Scalars['Int'];
 };
 
-export type PrerequisiteChoice = {
+export type PrerequisiteChoiceApiType = {
     choose: Scalars['Int'];
-    from: PrerequisiteOptionSet;
+    from: PrerequisiteOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type PrerequisiteOption = {
-    ability_score: AbilityScore;
+export type PrerequisiteOptionApiType = {
+    ability_score: AbilityScoreApiType;
     minimum_score: Scalars['Int'];
     option_type: Scalars['String'];
 };
 
-export type PrerequisiteOptionSet = {
+export type PrerequisiteOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<PrerequisiteOption>;
+    options: Array<PrerequisiteOptionApiType>;
 };
 
-export type Proficiency = {
-    classes: Array<Class>;
+export type ProficiencyApiType = {
+    classes: Array<ClassApiType>;
     index: Scalars['String'];
     name: Scalars['String'];
-    races: Array<ProficiencyRace>;
-    reference: ProficiencyReference;
-    type: ProficiencyType;
+    races: Array<ProficiencyRaceApiType>;
+    reference: ProficiencyReferenceApiType;
+    type: ProficiencyTypeApiType;
 };
 
-export type ProficiencyClassesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type ProficiencyClassesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type ProficiencyRacesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type ProficiencyRacesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type ProficiencyChoice = {
+export type ProficiencyChoiceApiType = {
     choose: Scalars['Int'];
-    desc: Maybe<Scalars['String']>;
-    from: ProficiencyOptionSet;
+    desc?: Maybe<Scalars['String']>;
+    from: ProficiencyOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type ProficiencyChoiceOption = {
-    choice: ProficiencyChoice;
+export type ProficiencyChoiceOptionApiType = {
+    choice: ProficiencyChoiceApiType;
     option_type: Scalars['String'];
 };
 
-export type ProficiencyOption = ProficiencyChoiceOption | ProficiencyReferenceOption;
+export type ProficiencyOptionApiType = ProficiencyChoiceOptionApiType | ProficiencyReferenceOptionApiType;
 
-export type ProficiencyOptionSet = {
+export type ProficiencyOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<ProficiencyOption>;
+    options: Array<ProficiencyOptionApiType>;
 };
 
-export type ProficiencyOrder = {
-    by: ProficiencyOrderBy;
-    direction: OrderByDirection;
-    then_by: InputMaybe<ProficiencyOrder>;
+export type ProficiencyOrderApiType = {
+    by: ProficiencyOrderByApiType;
+    direction?: OrderByDirectionApiType;
+    then_by?: InputMaybe<ProficiencyOrderApiType>;
 };
 
-export enum ProficiencyOrderBy {
-    Name = 'NAME',
-    Type = 'TYPE',
+export enum ProficiencyOrderByApiType {
+    NameApiType = 'NAME',
+    TypeApiType = 'TYPE',
 }
 
-export type ProficiencyPrerequisite = {
-    proficiency: Proficiency;
+export type ProficiencyPrerequisiteApiType = {
+    proficiency: ProficiencyApiType;
     type: Scalars['String'];
 };
 
-export type ProficiencyRace = {
-    ability_bonuses: Array<AbilityBonus>;
+export type ProficiencyRaceApiType = {
+    ability_bonuses: Array<AbilityBonusApiType>;
     index: Scalars['String'];
     name: Scalars['String'];
 };
 
-export type ProficiencyReference =
-    | AbilityScore
-    | Ammunition
-    | Armor
-    | EquipmentCategory
-    | Gear
-    | Pack
-    | Skill
-    | Tool
-    | Vehicle
-    | Weapon;
+export type ProficiencyReferenceApiType =
+    | AbilityScoreApiType
+    | AmmunitionApiType
+    | ArmorApiType
+    | EquipmentCategoryApiType
+    | GearApiType
+    | PackApiType
+    | SkillApiType
+    | ToolApiType
+    | VehicleApiType
+    | WeaponApiType;
 
-export type ProficiencyReferenceOption = {
-    item: Proficiency;
+export type ProficiencyReferenceOptionApiType = {
+    item: ProficiencyApiType;
     option_type: Scalars['String'];
 };
 
-export enum ProficiencyType {
-    Armor = 'ARMOR',
-    ArtisansTools = 'ARTISANS_TOOLS',
-    GamingSets = 'GAMING_SETS',
-    MusicalInstruments = 'MUSICAL_INSTRUMENTS',
-    Other = 'OTHER',
-    SavingThrows = 'SAVING_THROWS',
-    Skills = 'SKILLS',
-    Vehicles = 'VEHICLES',
-    Weapons = 'WEAPONS',
+export enum ProficiencyTypeApiType {
+    ArmorApiType = 'ARMOR',
+    ArtisansToolsApiType = 'ARTISANS_TOOLS',
+    GamingSetsApiType = 'GAMING_SETS',
+    MusicalInstrumentsApiType = 'MUSICAL_INSTRUMENTS',
+    OtherApiType = 'OTHER',
+    SavingThrowsApiType = 'SAVING_THROWS',
+    SkillsApiType = 'SKILLS',
+    VehiclesApiType = 'VEHICLES',
+    WeaponsApiType = 'WEAPONS',
 }
 
-export type Quantity = {
-    equipment: IEquipment;
+export type QuantityApiType = {
+    equipment: IEquipmentApiType;
     quantity: Scalars['Int'];
 };
 
-export type Query = {
-    abilityScore: Maybe<AbilityScore>;
-    abilityScores: Maybe<Array<AbilityScore>>;
-    alignment: Maybe<Alignment>;
-    alignments: Maybe<Array<Alignment>>;
-    background: Maybe<Background>;
-    backgrounds: Array<Background>;
-    class: Maybe<Class>;
-    classes: Array<Class>;
-    condition: Maybe<Condition>;
-    conditions: Maybe<Array<Condition>>;
-    damageType: Maybe<DamageType>;
-    damageTypes: Maybe<Array<DamageType>>;
-    equipment: Maybe<IEquipment>;
-    equipmentCategories: Maybe<Array<EquipmentCategory>>;
-    equipmentCategory: Maybe<EquipmentCategory>;
-    equipments: Maybe<Array<IEquipment>>;
-    feat: Maybe<Feat>;
-    feats: Maybe<Array<Feat>>;
-    feature: Maybe<Feature>;
-    features: Maybe<Array<Feature>>;
-    language: Maybe<Language>;
-    languages: Maybe<Array<Language>>;
-    level: Maybe<Level>;
-    levels: Maybe<Array<Level>>;
-    magicItem: Maybe<MagicItem>;
-    magicItems: Maybe<Array<MagicItem>>;
-    magicSchool: Maybe<MagicSchool>;
-    magicSchools: Maybe<Array<MagicSchool>>;
-    monster: Maybe<Monster>;
-    monsters: Maybe<Array<Monster>>;
-    proficiencies: Maybe<Array<Proficiency>>;
-    proficiency: Maybe<Proficiency>;
-    race: Maybe<Race>;
-    races: Array<Race>;
-    rule: Maybe<Rule>;
-    ruleSection: Maybe<RuleSection>;
-    ruleSections: Maybe<Array<RuleSection>>;
-    rules: Maybe<Array<Maybe<Rule>>>;
-    skill: Maybe<Skill>;
-    skills: Maybe<Array<Skill>>;
-    spell: Maybe<Spell>;
-    spells: Maybe<Array<Spell>>;
-    subclass: Maybe<Subclass>;
-    subclasses: Array<Subclass>;
-    subrace: Maybe<Subrace>;
-    subraces: Array<Subrace>;
-    trait: Maybe<Trait>;
-    traits: Maybe<Array<Trait>>;
-    weaponProperties: Maybe<Array<Maybe<WeaponProperty>>>;
-    weaponProperty: Maybe<WeaponProperty>;
+export type QueryApiType = {
+    abilityScore?: Maybe<AbilityScoreApiType>;
+    abilityScores?: Maybe<Array<AbilityScoreApiType>>;
+    alignment?: Maybe<AlignmentApiType>;
+    alignments?: Maybe<Array<AlignmentApiType>>;
+    background?: Maybe<BackgroundApiType>;
+    backgrounds: Array<BackgroundApiType>;
+    class?: Maybe<ClassApiType>;
+    classes: Array<ClassApiType>;
+    condition?: Maybe<ConditionApiType>;
+    conditions?: Maybe<Array<ConditionApiType>>;
+    damageType?: Maybe<DamageTypeApiType>;
+    damageTypes?: Maybe<Array<DamageTypeApiType>>;
+    equipment?: Maybe<IEquipmentApiType>;
+    equipmentCategories?: Maybe<Array<EquipmentCategoryApiType>>;
+    equipmentCategory?: Maybe<EquipmentCategoryApiType>;
+    equipments?: Maybe<Array<IEquipmentApiType>>;
+    feat?: Maybe<FeatApiType>;
+    feats?: Maybe<Array<FeatApiType>>;
+    feature?: Maybe<FeatureApiType>;
+    features?: Maybe<Array<FeatureApiType>>;
+    language?: Maybe<LanguageApiType>;
+    languages?: Maybe<Array<LanguageApiType>>;
+    level?: Maybe<LevelApiType>;
+    levels?: Maybe<Array<LevelApiType>>;
+    magicItem?: Maybe<MagicItemApiType>;
+    magicItems?: Maybe<Array<MagicItemApiType>>;
+    magicSchool?: Maybe<MagicSchoolApiType>;
+    magicSchools?: Maybe<Array<MagicSchoolApiType>>;
+    monster?: Maybe<MonsterApiType>;
+    monsters?: Maybe<Array<MonsterApiType>>;
+    proficiencies?: Maybe<Array<ProficiencyApiType>>;
+    proficiency?: Maybe<ProficiencyApiType>;
+    race?: Maybe<RaceApiType>;
+    races: Array<RaceApiType>;
+    rule?: Maybe<RuleApiType>;
+    ruleSection?: Maybe<RuleSectionApiType>;
+    ruleSections?: Maybe<Array<RuleSectionApiType>>;
+    rules?: Maybe<Array<Maybe<RuleApiType>>>;
+    skill?: Maybe<SkillApiType>;
+    skills?: Maybe<Array<SkillApiType>>;
+    spell?: Maybe<SpellApiType>;
+    spells?: Maybe<Array<SpellApiType>>;
+    subclass?: Maybe<SubclassApiType>;
+    subclasses: Array<SubclassApiType>;
+    subrace?: Maybe<SubraceApiType>;
+    subraces: Array<SubraceApiType>;
+    trait?: Maybe<TraitApiType>;
+    traits?: Maybe<Array<TraitApiType>>;
+    weaponProperties?: Maybe<Array<Maybe<WeaponPropertyApiType>>>;
+    weaponProperty?: Maybe<WeaponPropertyApiType>;
 };
 
-export type QueryAbilityScoreArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryAbilityScoreArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryAbilityScoresArgs = {
-    full_name: InputMaybe<Scalars['String']>;
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QueryAbilityScoresArgsApiType = {
+    full_name?: InputMaybe<Scalars['String']>;
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QueryAlignmentArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryAlignmentArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryAlignmentsArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QueryAlignmentsArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QueryBackgroundArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryBackgroundArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryBackgroundsArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QueryBackgroundsArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QueryClassArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryClassArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryClassesArgs = {
-    hit_die: InputMaybe<Scalars['IntFilter']>;
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<ClassOrder>;
+export type QueryClassesArgsApiType = {
+    hit_die?: InputMaybe<Scalars['IntFilter']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<ClassOrderApiType>;
 };
 
-export type QueryConditionArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryConditionArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryConditionsArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QueryConditionsArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QueryDamageTypeArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryDamageTypeArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryDamageTypesArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QueryDamageTypesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QueryEquipmentArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryEquipmentArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryEquipmentCategoriesArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QueryEquipmentCategoriesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QueryEquipmentCategoryArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryEquipmentCategoryArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryEquipmentsArgs = {
-    equipment_category: InputMaybe<Scalars['StringFilter']>;
+export type QueryEquipmentsArgsApiType = {
+    equipment_category?: InputMaybe<Scalars['StringFilter']>;
     limit?: Scalars['Int'];
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<EquipmentOrder>;
-    skip: InputMaybe<Scalars['Int']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<EquipmentOrderApiType>;
+    skip?: InputMaybe<Scalars['Int']>;
 };
 
-export type QueryFeatArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryFeatArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryFeatsArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QueryFeatsArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QueryFeatureArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryFeatureArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryFeaturesArgs = {
-    class: InputMaybe<Scalars['StringFilter']>;
-    level: InputMaybe<Scalars['IntFilter']>;
+export type QueryFeaturesArgsApiType = {
+    class?: InputMaybe<Scalars['StringFilter']>;
+    level?: InputMaybe<Scalars['IntFilter']>;
     limit?: Scalars['Int'];
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<FeatureOrder>;
-    skip: InputMaybe<Scalars['Int']>;
-    subclass: InputMaybe<Scalars['StringFilter']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<FeatureOrderApiType>;
+    skip?: InputMaybe<Scalars['Int']>;
+    subclass?: InputMaybe<Scalars['StringFilter']>;
 };
 
-export type QueryLanguageArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryLanguageArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryLanguagesArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<LanguageOrder>;
-    script: InputMaybe<Scalars['LanguageScriptFilter']>;
-    type: InputMaybe<LanguageType>;
+export type QueryLanguagesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<LanguageOrderApiType>;
+    script?: InputMaybe<Scalars['LanguageScriptFilter']>;
+    type?: InputMaybe<LanguageTypeApiType>;
 };
 
-export type QueryLevelArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryLevelArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryLevelsArgs = {
-    ability_score_bonuses: InputMaybe<Scalars['IntFilter']>;
-    class: InputMaybe<Scalars['StringFilter']>;
-    level: InputMaybe<Scalars['IntFilter']>;
+export type QueryLevelsArgsApiType = {
+    ability_score_bonuses?: InputMaybe<Scalars['IntFilter']>;
+    class?: InputMaybe<Scalars['StringFilter']>;
+    level?: InputMaybe<Scalars['IntFilter']>;
     limit?: Scalars['Int'];
-    order: InputMaybe<LevelOrder>;
-    prof_bonus: InputMaybe<Scalars['IntFilter']>;
-    skip: InputMaybe<Scalars['Int']>;
-    subclass: InputMaybe<Scalars['StringFilter']>;
+    order?: InputMaybe<LevelOrderApiType>;
+    prof_bonus?: InputMaybe<Scalars['IntFilter']>;
+    skip?: InputMaybe<Scalars['Int']>;
+    subclass?: InputMaybe<Scalars['StringFilter']>;
 };
 
-export type QueryMagicItemArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryMagicItemArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryMagicItemsArgs = {
-    equipment_category: InputMaybe<Scalars['StringFilter']>;
+export type QueryMagicItemsArgsApiType = {
+    equipment_category?: InputMaybe<Scalars['StringFilter']>;
     limit?: Scalars['Int'];
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<MagicItemOrder>;
-    skip: InputMaybe<Scalars['Int']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<MagicItemOrderApiType>;
+    skip?: InputMaybe<Scalars['Int']>;
 };
 
-export type QueryMagicSchoolArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryMagicSchoolArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryMagicSchoolsArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QueryMagicSchoolsArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QueryMonsterArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryMonsterArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryMonstersArgs = {
-    armor_class: InputMaybe<Scalars['IntFilter']>;
-    challenge_rating: InputMaybe<Scalars['FloatFilter']>;
-    charisma: InputMaybe<Scalars['IntFilter']>;
-    constitution: InputMaybe<Scalars['IntFilter']>;
-    damage_immunity: InputMaybe<Scalars['StringFilter']>;
-    damage_resistance: InputMaybe<Scalars['StringFilter']>;
-    damage_vulnerability: InputMaybe<Scalars['StringFilter']>;
-    dexterity: InputMaybe<Scalars['IntFilter']>;
-    intelligence: InputMaybe<Scalars['IntFilter']>;
+export type QueryMonstersArgsApiType = {
+    armor_class?: InputMaybe<Scalars['IntFilter']>;
+    challenge_rating?: InputMaybe<Scalars['FloatFilter']>;
+    charisma?: InputMaybe<Scalars['IntFilter']>;
+    constitution?: InputMaybe<Scalars['IntFilter']>;
+    damage_immunity?: InputMaybe<Scalars['StringFilter']>;
+    damage_resistance?: InputMaybe<Scalars['StringFilter']>;
+    damage_vulnerability?: InputMaybe<Scalars['StringFilter']>;
+    dexterity?: InputMaybe<Scalars['IntFilter']>;
+    intelligence?: InputMaybe<Scalars['IntFilter']>;
     limit?: Scalars['Int'];
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<MonsterOrder>;
-    size: InputMaybe<Scalars['SizeFilter']>;
-    skip: InputMaybe<Scalars['Int']>;
-    strength: InputMaybe<Scalars['IntFilter']>;
-    subtype: InputMaybe<Scalars['MonsterSubtypeFilter']>;
-    type: InputMaybe<Scalars['MonsterTypeFilter']>;
-    wisdom: InputMaybe<Scalars['IntFilter']>;
-    xp: InputMaybe<Scalars['IntFilter']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<MonsterOrderApiType>;
+    size?: InputMaybe<Scalars['SizeFilter']>;
+    skip?: InputMaybe<Scalars['Int']>;
+    strength?: InputMaybe<Scalars['IntFilter']>;
+    subtype?: InputMaybe<Scalars['MonsterSubtypeFilter']>;
+    type?: InputMaybe<Scalars['MonsterTypeFilter']>;
+    wisdom?: InputMaybe<Scalars['IntFilter']>;
+    xp?: InputMaybe<Scalars['IntFilter']>;
 };
 
-export type QueryProficienciesArgs = {
-    class: InputMaybe<Scalars['StringFilter']>;
+export type QueryProficienciesArgsApiType = {
+    class?: InputMaybe<Scalars['StringFilter']>;
     limit?: Scalars['Int'];
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<ProficiencyOrder>;
-    race: InputMaybe<Scalars['StringFilter']>;
-    skip: InputMaybe<Scalars['Int']>;
-    type: InputMaybe<Scalars['ProficiencyTypeFilter']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<ProficiencyOrderApiType>;
+    race?: InputMaybe<Scalars['StringFilter']>;
+    skip?: InputMaybe<Scalars['Int']>;
+    type?: InputMaybe<Scalars['ProficiencyTypeFilter']>;
 };
 
-export type QueryProficiencyArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryProficiencyArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryRaceArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryRaceArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryRacesArgs = {
-    ability_bonus: InputMaybe<Scalars['StringFilter']>;
-    language: InputMaybe<Scalars['StringFilter']>;
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<RaceOrder>;
-    size: InputMaybe<Scalars['SizeFilter']>;
-    speed: InputMaybe<Scalars['IntFilter']>;
+export type QueryRacesArgsApiType = {
+    ability_bonus?: InputMaybe<Scalars['StringFilter']>;
+    language?: InputMaybe<Scalars['StringFilter']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<RaceOrderApiType>;
+    size?: InputMaybe<Scalars['SizeFilter']>;
+    speed?: InputMaybe<Scalars['IntFilter']>;
 };
 
-export type QueryRuleArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryRuleArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryRuleSectionArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryRuleSectionArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryRuleSectionsArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QueryRuleSectionsArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QueryRulesArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QueryRulesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QuerySkillArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QuerySkillArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QuerySkillsArgs = {
-    ability_score: InputMaybe<Scalars['StringFilter']>;
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<SkillOrder>;
+export type QuerySkillsArgsApiType = {
+    ability_score?: InputMaybe<Scalars['StringFilter']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<SkillOrderApiType>;
 };
 
-export type QuerySpellArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QuerySpellArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QuerySpellsArgs = {
-    area_of_effect: InputMaybe<AreaOfEffectFilter>;
-    attack_type: InputMaybe<Scalars['SpellAttackTypeFilter']>;
-    casting_time: InputMaybe<Scalars['StringFilter']>;
-    class: InputMaybe<Scalars['StringFilter']>;
-    concentration: InputMaybe<Scalars['Boolean']>;
-    damage_type: InputMaybe<Scalars['StringFilter']>;
-    dc_type: InputMaybe<Scalars['StringFilter']>;
-    level: InputMaybe<Scalars['IntFilter']>;
+export type QuerySpellsArgsApiType = {
+    area_of_effect?: InputMaybe<AreaOfEffectFilterApiType>;
+    attack_type?: InputMaybe<Scalars['SpellAttackTypeFilter']>;
+    casting_time?: InputMaybe<Scalars['StringFilter']>;
+    class?: InputMaybe<Scalars['StringFilter']>;
+    concentration?: InputMaybe<Scalars['Boolean']>;
+    damage_type?: InputMaybe<Scalars['StringFilter']>;
+    dc_type?: InputMaybe<Scalars['StringFilter']>;
+    level?: InputMaybe<Scalars['IntFilter']>;
     limit?: Scalars['Int'];
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<SpellOrder>;
-    range: InputMaybe<Scalars['StringFilter']>;
-    ritual: InputMaybe<Scalars['Boolean']>;
-    school: InputMaybe<Scalars['StringFilter']>;
-    skip: InputMaybe<Scalars['Int']>;
-    subclass: InputMaybe<Scalars['StringFilter']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<SpellOrderApiType>;
+    range?: InputMaybe<Scalars['StringFilter']>;
+    ritual?: InputMaybe<Scalars['Boolean']>;
+    school?: InputMaybe<Scalars['StringFilter']>;
+    skip?: InputMaybe<Scalars['Int']>;
+    subclass?: InputMaybe<Scalars['StringFilter']>;
 };
 
-export type QuerySubclassArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QuerySubclassArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QuerySubclassesArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QuerySubclassesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QuerySubraceArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QuerySubraceArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QuerySubracesArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QuerySubracesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QueryTraitArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryTraitArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryTraitsArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QueryTraitsArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QueryWeaponPropertiesArgs = {
-    name: InputMaybe<Scalars['String']>;
-    order_direction: InputMaybe<OrderByDirection>;
+export type QueryWeaponPropertiesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
+    order_direction?: InputMaybe<OrderByDirectionApiType>;
 };
 
-export type QueryWeaponPropertyArgs = {
-    index: InputMaybe<Scalars['String']>;
+export type QueryWeaponPropertyArgsApiType = {
+    index?: InputMaybe<Scalars['String']>;
 };
 
-export type Race = ProficiencyRace & {
-    ability_bonus_options: Maybe<AbilityBonusChoice>;
-    ability_bonuses: Array<AbilityBonus>;
+export type RaceApiType = ProficiencyRaceApiType & {
+    ability_bonus_options?: Maybe<AbilityBonusChoiceApiType>;
+    ability_bonuses: Array<AbilityBonusApiType>;
     age: Scalars['String'];
     alignment: Scalars['String'];
     index: Scalars['String'];
     language_desc: Scalars['String'];
-    language_options: Maybe<LanguageChoice>;
-    languages: Array<Language>;
+    language_options?: Maybe<LanguageChoiceApiType>;
+    languages: Array<LanguageApiType>;
     name: Scalars['String'];
-    size: Size;
+    size: SizeApiType;
     size_description: Scalars['String'];
     speed: Scalars['Int'];
-    starting_proficiencies: Array<Proficiency>;
-    starting_proficiency_options: Maybe<ProficiencyChoice>;
-    subraces: Array<Subrace>;
-    traits: Array<Trait>;
+    starting_proficiencies: Array<ProficiencyApiType>;
+    starting_proficiency_options?: Maybe<ProficiencyChoiceApiType>;
+    subraces: Array<SubraceApiType>;
+    traits: Array<TraitApiType>;
 };
 
-export type RaceLanguagesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type RaceLanguagesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type RaceStarting_ProficienciesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type RaceStarting_ProficienciesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type RaceSubracesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type RaceSubracesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type RaceTraitsArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type RaceTraitsArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type RaceOrder = {
-    by: RaceOrderBy;
-    direction: OrderByDirection;
-    then_by: InputMaybe<RaceOrder>;
+export type RaceOrderApiType = {
+    by: RaceOrderByApiType;
+    direction?: OrderByDirectionApiType;
+    then_by?: InputMaybe<RaceOrderApiType>;
 };
 
-export enum RaceOrderBy {
-    Name = 'NAME',
-    Size = 'SIZE',
-    Speed = 'SPEED',
+export enum RaceOrderByApiType {
+    NameApiType = 'NAME',
+    SizeApiType = 'SIZE',
+    SpeedApiType = 'SPEED',
 }
 
-export type Range = {
-    long: Maybe<Scalars['Int']>;
+export type RangeApiType = {
+    long?: Maybe<Scalars['Int']>;
     normal: Scalars['Int'];
 };
 
-export type RangerSpecific = {
+export type RangerSpecificApiType = {
     favored_enemies: Scalars['Int'];
     favored_terrain: Scalars['Int'];
 };
 
-export type Reaction = {
-    dc: Maybe<ActionDc>;
+export type ReactionApiType = {
+    dc?: Maybe<ActionDcApiType>;
     desc: Scalars['String'];
     name: Scalars['String'];
 };
 
-export enum RestType {
-    Long = 'LONG',
-    Short = 'SHORT',
+export enum RestTypeApiType {
+    LongApiType = 'LONG',
+    ShortApiType = 'SHORT',
 }
 
-export type RogueSpecific = {
-    sneak_attack: Dice;
+export type RogueSpecificApiType = {
+    sneak_attack: DiceApiType;
 };
 
-export type Rule = {
+export type RuleApiType = {
     desc: Scalars['String'];
     index: Scalars['String'];
     name: Scalars['String'];
-    subsections: Array<RuleSection>;
+    subsections: Array<RuleSectionApiType>;
 };
 
-export type RuleSubsectionsArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type RuleSubsectionsArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type RuleSection = {
+export type RuleSectionApiType = {
     desc: Scalars['String'];
     index: Scalars['String'];
     name: Scalars['String'];
 };
 
-export type Senses = {
-    blindsight: Maybe<Scalars['String']>;
-    darkvision: Maybe<Scalars['String']>;
+export type SensesApiType = {
+    blindsight?: Maybe<Scalars['String']>;
+    darkvision?: Maybe<Scalars['String']>;
     passive_perception: Scalars['Int'];
-    tremorsense: Maybe<Scalars['String']>;
-    truesight: Maybe<Scalars['String']>;
+    tremorsense?: Maybe<Scalars['String']>;
+    truesight?: Maybe<Scalars['String']>;
 };
 
-export enum Size {
-    Gargantuan = 'GARGANTUAN',
-    Huge = 'HUGE',
-    Large = 'LARGE',
-    Medium = 'MEDIUM',
-    Small = 'SMALL',
-    Tiny = 'TINY',
+export enum SizeApiType {
+    GargantuanApiType = 'GARGANTUAN',
+    HugeApiType = 'HUGE',
+    LargeApiType = 'LARGE',
+    MediumApiType = 'MEDIUM',
+    SmallApiType = 'SMALL',
+    TinyApiType = 'TINY',
 }
 
-export type Skill = {
-    ability_score: AbilityScore;
+export type SkillApiType = {
+    ability_score: AbilityScoreApiType;
     desc: Array<Scalars['String']>;
     index: Scalars['String'];
     name: Scalars['String'];
 };
 
-export type SkillOrder = {
-    by: SkillOrderBy;
-    direction: OrderByDirection;
-    then_by: InputMaybe<SkillOrder>;
+export type SkillOrderApiType = {
+    by: SkillOrderByApiType;
+    direction?: OrderByDirectionApiType;
+    then_by?: InputMaybe<SkillOrderApiType>;
 };
 
-export enum SkillOrderBy {
-    AbilityScore = 'ABILITY_SCORE',
-    Name = 'NAME',
+export enum SkillOrderByApiType {
+    AbilityScoreApiType = 'ABILITY_SCORE',
+    NameApiType = 'NAME',
 }
 
-export type SorcererSpecific = {
-    creating_spell_slots: Array<SpellSlotCreation>;
+export type SorcererSpecificApiType = {
+    creating_spell_slots: Array<SpellSlotCreationApiType>;
     metamagic_known: Scalars['Int'];
     sorcery_points: Scalars['Int'];
 };
 
-export type SpecialAbility = {
-    damage: Maybe<Array<Damage>>;
-    dc: Maybe<ActionDc>;
+export type SpecialAbilityApiType = {
+    damage?: Maybe<Array<DamageApiType>>;
+    dc?: Maybe<ActionDcApiType>;
     desc: Scalars['String'];
     name: Scalars['String'];
-    spellcasting: Maybe<MonsterSpellcasting>;
-    usage: Maybe<Usage>;
+    spellcasting?: Maybe<MonsterSpellcastingApiType>;
+    usage?: Maybe<UsageApiType>;
 };
 
-export type Speed = {
+export type SpeedApiType = {
     quantity: Scalars['Float'];
     unit: Scalars['String'];
 };
 
-export type Spell = {
-    area_of_effect: Maybe<AreaOfEffect>;
-    attack_type: Maybe<SpellAttackType>;
+export type SpellApiType = {
+    area_of_effect?: Maybe<AreaOfEffectApiType>;
+    attack_type?: Maybe<SpellAttackTypeApiType>;
     casting_time: Scalars['String'];
-    classes: Array<Class>;
-    components: Maybe<Array<Maybe<SpellComponent>>>;
+    classes: Array<ClassApiType>;
+    components?: Maybe<Array<Maybe<SpellComponentApiType>>>;
     concentration: Scalars['Boolean'];
-    damage: Maybe<SpellDamage>;
-    dc: Maybe<SpellDc>;
+    damage?: Maybe<SpellDamageApiType>;
+    dc?: Maybe<SpellDcApiType>;
     desc: Array<Scalars['String']>;
     duration: Scalars['String'];
-    heal_at_slot_level: Maybe<Array<HealingAtLevel>>;
-    higher_level: Maybe<Array<Scalars['String']>>;
+    heal_at_slot_level?: Maybe<Array<HealingAtLevelApiType>>;
+    higher_level?: Maybe<Array<Scalars['String']>>;
     index: Scalars['String'];
     level: Scalars['Int'];
-    material: Maybe<Scalars['String']>;
+    material?: Maybe<Scalars['String']>;
     name: Scalars['String'];
     range: Scalars['String'];
     ritual: Scalars['Boolean'];
-    school: MagicSchool;
-    subclasses: Array<Subclass>;
+    school: MagicSchoolApiType;
+    subclasses: Array<SubclassApiType>;
 };
 
-export type SpellClassesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type SpellClassesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type SpellSubclassesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type SpellSubclassesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export enum SpellAttackType {
-    Melee = 'MELEE',
-    Ranged = 'RANGED',
+export enum SpellAttackTypeApiType {
+    MeleeApiType = 'MELEE',
+    RangedApiType = 'RANGED',
 }
 
-export type SpellChoice = {
+export type SpellChoiceApiType = {
     choose: Scalars['Int'];
-    from: SpellOptionSet;
+    from: SpellOptionSetApiType;
     type: Scalars['String'];
 };
 
-export enum SpellComponent {
-    M = 'M',
-    S = 'S',
-    V = 'V',
+export enum SpellComponentApiType {
+    MApiType = 'M',
+    SApiType = 'S',
+    VApiType = 'V',
 }
 
-export type SpellDamage = {
-    damage_at_character_level: Maybe<Array<DamageAtLevel>>;
-    damage_at_slot_level: Maybe<Array<DamageAtLevel>>;
-    damage_type: Maybe<DamageType>;
+export type SpellDamageApiType = {
+    damage_at_character_level?: Maybe<Array<DamageAtLevelApiType>>;
+    damage_at_slot_level?: Maybe<Array<DamageAtLevelApiType>>;
+    damage_type?: Maybe<DamageTypeApiType>;
 };
 
-export type SpellDc = {
-    desc: Maybe<Scalars['String']>;
-    success: DcSuccess;
-    type: AbilityScore;
+export type SpellDcApiType = {
+    desc?: Maybe<Scalars['String']>;
+    success: DcSuccessApiType;
+    type: AbilityScoreApiType;
 };
 
-export type SpellOption = {
-    item: Spell;
+export type SpellOptionApiType = {
+    item: SpellApiType;
     option_type: Scalars['String'];
 };
 
-export type SpellOptionSet = {
+export type SpellOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<SpellOption>;
+    options: Array<SpellOptionApiType>;
 };
 
-export type SpellOrder = {
-    by: SpellOrderBy;
-    direction: OrderByDirection;
-    then_by: InputMaybe<SpellOrder>;
+export type SpellOrderApiType = {
+    by: SpellOrderByApiType;
+    direction?: OrderByDirectionApiType;
+    then_by?: InputMaybe<SpellOrderApiType>;
 };
 
-export enum SpellOrderBy {
-    AreaOfEffectSize = 'AREA_OF_EFFECT_SIZE',
-    Concentration = 'CONCENTRATION',
-    Level = 'LEVEL',
-    Name = 'NAME',
-    Ritual = 'RITUAL',
-    School = 'SCHOOL',
+export enum SpellOrderByApiType {
+    AreaOfEffectSizeApiType = 'AREA_OF_EFFECT_SIZE',
+    ConcentrationApiType = 'CONCENTRATION',
+    LevelApiType = 'LEVEL',
+    NameApiType = 'NAME',
+    RitualApiType = 'RITUAL',
+    SchoolApiType = 'SCHOOL',
 }
 
-export type SpellPrerequisite = Feature | Level;
+export type SpellPrerequisiteApiType = FeatureApiType | LevelApiType;
 
-export type SpellSlotCreation = {
+export type SpellSlotCreationApiType = {
     sorcery_point_cost: Scalars['Int'];
     spell_slot_level: Scalars['Int'];
 };
 
-export type SpellWithPrerequisite = {
-    prerequisites: Array<Maybe<SpellPrerequisite>>;
-    spell: Spell;
+export type SpellWithPrerequisiteApiType = {
+    prerequisites: Array<Maybe<SpellPrerequisiteApiType>>;
+    spell: SpellApiType;
 };
 
-export type SpellcastingInfo = {
+export type SpellcastingInfoApiType = {
     desc: Array<Scalars['String']>;
     name: Scalars['String'];
 };
 
-export type StartingEquipmentChoice = {
+export type StartingEquipmentChoiceApiType = {
     choose: Scalars['Int'];
     desc: Scalars['String'];
-    from: StartingEquipmentOptionSet;
+    from: StartingEquipmentOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type StartingEquipmentOptionSet = EquipmentCategoryOptionSet | EquipmentOptionSet;
+export type StartingEquipmentOptionSetApiType = EquipmentCategoryOptionSetApiType | EquipmentOptionSetApiType;
 
-export type StringChoice = {
+export type StringChoiceApiType = {
     choose: Scalars['Int'];
-    from: StringOptionSet;
+    from: StringOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type StringOption = {
+export type StringOptionApiType = {
     option_type: Scalars['String'];
     string: Scalars['String'];
 };
 
-export type StringOptionSet = {
+export type StringOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<StringOption>;
+    options: Array<StringOptionApiType>;
 };
 
-export type Subclass = {
-    class: Class;
+export type SubclassApiType = {
+    class: ClassApiType;
     desc: Array<Scalars['String']>;
     index: Scalars['String'];
     name: Scalars['String'];
-    spells: Maybe<Array<SpellWithPrerequisite>>;
+    spells?: Maybe<Array<SpellWithPrerequisiteApiType>>;
     subclass_flavor: Scalars['String'];
-    subclass_levels: Array<Maybe<Level>>;
+    subclass_levels: Array<Maybe<LevelApiType>>;
 };
 
-export type SubclassSpellsArgs = {
-    area_of_effect: InputMaybe<AreaOfEffectFilter>;
-    attack_type: InputMaybe<Scalars['SpellAttackTypeFilter']>;
-    casting_time: InputMaybe<Scalars['StringFilter']>;
-    class: InputMaybe<Scalars['StringFilter']>;
-    concentration: InputMaybe<Scalars['Boolean']>;
-    damage_type: InputMaybe<Scalars['StringFilter']>;
-    dc_type: InputMaybe<Scalars['StringFilter']>;
-    level: InputMaybe<Scalars['IntFilter']>;
+export type SubclassSpellsArgsApiType = {
+    area_of_effect?: InputMaybe<AreaOfEffectFilterApiType>;
+    attack_type?: InputMaybe<Scalars['SpellAttackTypeFilter']>;
+    casting_time?: InputMaybe<Scalars['StringFilter']>;
+    class?: InputMaybe<Scalars['StringFilter']>;
+    concentration?: InputMaybe<Scalars['Boolean']>;
+    damage_type?: InputMaybe<Scalars['StringFilter']>;
+    dc_type?: InputMaybe<Scalars['StringFilter']>;
+    level?: InputMaybe<Scalars['IntFilter']>;
     limit?: Scalars['Int'];
-    name: InputMaybe<Scalars['String']>;
-    order: InputMaybe<SpellOrder>;
-    range: InputMaybe<Scalars['StringFilter']>;
-    ritual: InputMaybe<Scalars['Boolean']>;
-    school: InputMaybe<Scalars['StringFilter']>;
-    skip: InputMaybe<Scalars['Int']>;
+    name?: InputMaybe<Scalars['String']>;
+    order?: InputMaybe<SpellOrderApiType>;
+    range?: InputMaybe<Scalars['StringFilter']>;
+    ritual?: InputMaybe<Scalars['Boolean']>;
+    school?: InputMaybe<Scalars['StringFilter']>;
+    skip?: InputMaybe<Scalars['Int']>;
 };
 
-export type SubclassSpecific = DevotionSpecific | LoreSpecific;
+export type SubclassSpecificApiType = DevotionSpecificApiType | LoreSpecificApiType;
 
-export type Subrace = ProficiencyRace & {
-    ability_bonuses: Array<AbilityBonus>;
+export type SubraceApiType = ProficiencyRaceApiType & {
+    ability_bonuses: Array<AbilityBonusApiType>;
     desc: Scalars['String'];
     index: Scalars['String'];
-    language_options: Maybe<LanguageChoice>;
+    language_options?: Maybe<LanguageChoiceApiType>;
     name: Scalars['String'];
-    race: Race;
-    racial_traits: Array<Trait>;
-    starting_proficiencies: Array<Proficiency>;
+    race: RaceApiType;
+    racial_traits: Array<TraitApiType>;
+    starting_proficiencies: Array<ProficiencyApiType>;
 };
 
-export type SubraceRacial_TraitsArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type SubraceRacial_TraitsArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type SubraceStarting_ProficienciesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type SubraceStarting_ProficienciesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type Tool = IEquipment &
-    IEquipmentBase & {
-        cost: Cost;
-        desc: Maybe<Array<Scalars['String']>>;
-        equipment_category: EquipmentCategory;
+export type ToolApiType = IEquipmentApiType &
+    IEquipmentBaseApiType & {
+        cost: CostApiType;
+        desc?: Maybe<Array<Scalars['String']>>;
+        equipment_category: EquipmentCategoryApiType;
         index: Scalars['String'];
         name: Scalars['String'];
-        tool_category: EquipmentCategory;
-        weight: Maybe<Scalars['Float']>;
+        tool_category: EquipmentCategoryApiType;
+        weight?: Maybe<Scalars['Float']>;
     };
 
-export type Trait = {
+export type TraitApiType = {
     desc: Array<Scalars['String']>;
     index: Scalars['String'];
-    language_options: Maybe<LanguageChoice>;
+    language_options?: Maybe<LanguageChoiceApiType>;
     name: Scalars['String'];
-    parent: Maybe<Trait>;
-    proficiencies: Array<Proficiency>;
-    proficiency_choices: Maybe<ProficiencyChoice>;
-    races: Array<Maybe<Race>>;
-    subraces: Array<Subrace>;
-    trait_specific: Maybe<TraitSpecific>;
+    parent?: Maybe<TraitApiType>;
+    proficiencies: Array<ProficiencyApiType>;
+    proficiency_choices?: Maybe<ProficiencyChoiceApiType>;
+    races: Array<Maybe<RaceApiType>>;
+    subraces: Array<SubraceApiType>;
+    trait_specific?: Maybe<TraitSpecificApiType>;
 };
 
-export type TraitProficienciesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type TraitProficienciesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type TraitRacesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type TraitRacesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type TraitSubracesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type TraitSubracesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type TraitChoice = {
+export type TraitChoiceApiType = {
     choose: Scalars['Int'];
-    from: TraitOptionSet;
+    from: TraitOptionSetApiType;
     type: Scalars['String'];
 };
 
-export type TraitOption = {
-    item: Trait;
+export type TraitOptionApiType = {
+    item: TraitApiType;
     option_type: Scalars['String'];
 };
 
-export type TraitOptionSet = {
+export type TraitOptionSetApiType = {
     option_set_type: Scalars['String'];
-    options: Array<TraitOption>;
+    options: Array<TraitOptionApiType>;
 };
 
-export type TraitSpecific = {
-    breath_weapon: Maybe<BreathWeaponTrait>;
-    damage_type: Maybe<DamageType>;
-    spell_options: Maybe<SpellChoice>;
-    subtrait_options: Maybe<TraitChoice>;
+export type TraitSpecificApiType = {
+    breath_weapon?: Maybe<BreathWeaponTraitApiType>;
+    damage_type?: Maybe<DamageTypeApiType>;
+    spell_options?: Maybe<SpellChoiceApiType>;
+    subtrait_options?: Maybe<TraitChoiceApiType>;
 };
 
-export type Usage = {
-    dice: Maybe<Scalars['String']>;
-    min_value: Maybe<Scalars['Int']>;
-    rest_types: Maybe<Array<RestType>>;
-    times: Maybe<Scalars['Int']>;
-    type: UsageType;
+export type UsageApiType = {
+    dice?: Maybe<Scalars['String']>;
+    min_value?: Maybe<Scalars['Int']>;
+    rest_types?: Maybe<Array<RestTypeApiType>>;
+    times?: Maybe<Scalars['Int']>;
+    type: UsageTypeApiType;
 };
 
-export enum UsageType {
-    AtWill = 'AT_WILL',
-    PerDay = 'PER_DAY',
-    PerRest = 'PER_REST',
-    RechargeAfterRest = 'RECHARGE_AFTER_REST',
-    RechargeOnRoll = 'RECHARGE_ON_ROLL',
+export enum UsageTypeApiType {
+    AtWillApiType = 'AT_WILL',
+    PerDayApiType = 'PER_DAY',
+    PerRestApiType = 'PER_REST',
+    RechargeAfterRestApiType = 'RECHARGE_AFTER_REST',
+    RechargeOnRollApiType = 'RECHARGE_ON_ROLL',
 }
 
-export type Vehicle = IEquipment &
-    IEquipmentBase & {
-        capacity: Maybe<Scalars['String']>;
-        cost: Cost;
-        desc: Maybe<Array<Scalars['String']>>;
-        equipment_category: EquipmentCategory;
+export type VehicleApiType = IEquipmentApiType &
+    IEquipmentBaseApiType & {
+        capacity?: Maybe<Scalars['String']>;
+        cost: CostApiType;
+        desc?: Maybe<Array<Scalars['String']>>;
+        equipment_category: EquipmentCategoryApiType;
         index: Scalars['String'];
         name: Scalars['String'];
-        speed: Maybe<Speed>;
-        vehicle_category: EquipmentCategory;
-        weight: Maybe<Scalars['Float']>;
+        speed?: Maybe<SpeedApiType>;
+        vehicle_category: EquipmentCategoryApiType;
+        weight?: Maybe<Scalars['Float']>;
     };
 
-export type WarlockSpecific = {
+export type WarlockSpecificApiType = {
     invocations_known: Scalars['Int'];
     mystic_arcanum_level_6: Scalars['Int'];
     mystic_arcanum_level_7: Scalars['Int'];
@@ -1830,69 +1836,69 @@ export type WarlockSpecific = {
     mystic_arcanum_level_9: Scalars['Int'];
 };
 
-export type Weapon = IEquipment &
-    IEquipmentBase & {
-        category_range: EquipmentCategory;
-        cost: Cost;
-        damage: Maybe<Damage>;
-        desc: Maybe<Array<Scalars['String']>>;
-        equipment_category: EquipmentCategory;
+export type WeaponApiType = IEquipmentApiType &
+    IEquipmentBaseApiType & {
+        category_range: EquipmentCategoryApiType;
+        cost: CostApiType;
+        damage?: Maybe<DamageApiType>;
+        desc?: Maybe<Array<Scalars['String']>>;
+        equipment_category: EquipmentCategoryApiType;
         index: Scalars['String'];
         name: Scalars['String'];
-        properties: Array<WeaponProperty>;
-        range: Range;
-        special: Maybe<Array<Scalars['String']>>;
-        throw_range: Maybe<Range>;
-        two_handed_damage: Maybe<Damage>;
-        weapon_category: EquipmentCategory;
-        weapon_range: WeaponRange;
-        weight: Maybe<Scalars['Float']>;
+        properties: Array<WeaponPropertyApiType>;
+        range: RangeApiType;
+        special?: Maybe<Array<Scalars['String']>>;
+        throw_range?: Maybe<RangeApiType>;
+        two_handed_damage?: Maybe<DamageApiType>;
+        weapon_category: EquipmentCategoryApiType;
+        weapon_range: WeaponRangeApiType;
+        weight?: Maybe<Scalars['Float']>;
     };
 
-export type WeaponPropertiesArgs = {
-    name: InputMaybe<Scalars['String']>;
+export type WeaponPropertiesArgsApiType = {
+    name?: InputMaybe<Scalars['String']>;
 };
 
-export type WeaponProperty = {
+export type WeaponPropertyApiType = {
     desc: Array<Scalars['String']>;
     index: Scalars['String'];
     name: Scalars['String'];
 };
 
-export enum WeaponRange {
-    Melee = 'MELEE',
-    Ranged = 'RANGED',
+export enum WeaponRangeApiType {
+    MeleeApiType = 'MELEE',
+    RangedApiType = 'RANGED',
 }
 
-export type WizardSpecific = {
+export type WizardSpecificApiType = {
     arcane_recovery_levels: Scalars['Int'];
 };
 
-export type SpellQueryQueryVariables = Exact<{
-    index: InputMaybe<Scalars['String']>;
+export type SpellQueryQueryVariablesApiType = Exact<{
+    index?: InputMaybe<Scalars['String']>;
 }>;
 
-export type SpellQueryQuery = {
-    spell: {
+export type SpellQueryQueryApiType = {
+    spell?: {
         index: string;
-        attack_type: SpellAttackType | null;
+        attack_type?: SpellAttackTypeApiType | null;
         casting_time: string;
         level: number;
-        higher_level: Array<string> | null;
-        material: string | null;
+        higher_level?: Array<string> | null;
+        material?: string | null;
         name: string;
         range: string;
         ritual: boolean;
         concentration: boolean;
-        components: Array<SpellComponent | null> | null;
+        components?: Array<SpellComponentApiType | null> | null;
         desc: Array<string>;
         duration: string;
-        area_of_effect: { type: AreaOfEffectType; size: number } | null;
+        area_of_effect?: { type: AreaOfEffectTypeApiType; size: number } | null;
         school: { name: string; index: string; desc: string };
         classes: Array<{ name: string; index: string }>;
-        dc: {
-            success: DcSuccess;
-            desc: string | null;
+        dc?: {
+            success: DcSuccessApiType;
+            desc?: string | null;
             type: {
                 index: string;
                 name: string;
@@ -1901,19 +1907,19 @@ export type SpellQueryQuery = {
                 skills: Array<{ name: string }>;
             };
         } | null;
-        damage: {
-            damage_at_slot_level: Array<{ level: number; damage: string }> | null;
-            damage_at_character_level: Array<{ damage: string; level: number }> | null;
-            damage_type: { desc: Array<string>; name: string; index: string } | null;
+        damage?: {
+            damage_at_slot_level?: Array<{ level: number; damage: string }> | null;
+            damage_at_character_level?: Array<{ damage: string; level: number }> | null;
+            damage_type?: { desc: Array<string>; name: string; index: string } | null;
         } | null;
         subclasses: Array<{ index: string; name: string }>;
-        heal_at_slot_level: Array<{ healing: string; level: number }> | null;
+        heal_at_slot_level?: Array<{ healing: string; level: number }> | null;
     } | null;
 };
 
-export type SpellsQueryQueryVariables = Exact<{
-    name: InputMaybe<Scalars['String']>;
+export type SpellsQueryQueryVariablesApiType = Exact<{
+    name?: InputMaybe<Scalars['String']>;
     limit: Scalars['Int'];
 }>;
 
-export type SpellsQueryQuery = { spells: Array<{ name: string; index: string }> | null };
+export type SpellsQueryQueryApiType = { spells?: Array<{ name: string; index: string }> | null };

@@ -2,16 +2,17 @@ import { DocumentNode } from 'graphql';
 import { print } from 'graphql/language/printer';
 import getPersistedQueryHashClient from '../helpers/persistedQueryHash/client';
 import getPersistedQueryHashServer from '../helpers/persistedQueryHash/server';
+import { QueryApiType } from '../types/grqphql';
 
 const getHash = process.env.CLIENT ? getPersistedQueryHashClient : getPersistedQueryHashServer;
 const PERSISTED_QUERY_NOT_FOUND_ERROR_CODE = 'PERSISTED_QUERY_NOT_FOUND';
 const SHOULD_USE_PERSISTED_QUERIES = true;
 const API_URL = 'https://www.dnd5eapi.co/graphql';
 
-type QueryBody = {
+type QueryBody<Variables> = {
     operationName: string;
     query: string;
-    variables: Record<string, unknown>;
+    variables: Variables;
     extensions?: {
         persistedQuery?: {
             version: number;
@@ -20,9 +21,9 @@ type QueryBody = {
     };
 };
 
-type QueryArguments = {
+type QueryArguments<Variables> = {
     query: DocumentNode;
-    variables?: Record<string, unknown>;
+    variables?: Variables;
     headers?: Record<string, string>;
 };
 
@@ -41,8 +42,8 @@ const getPersistedQueryDefinition = async (query) => ({
     },
 });
 
-const fetchQuery = async ({ query, variables, headers }: QueryArguments) => {
-    const body: QueryBody = {
+async function fetchQuery<Variables>({ query, variables, headers }: QueryArguments<Variables>) {
+    const body: QueryBody<Variables> = {
         operationName: getOperationName(query),
         variables,
         query: print(query),
@@ -63,7 +64,9 @@ const fetchQuery = async ({ query, variables, headers }: QueryArguments) => {
     });
 
     if (response.ok) {
-        return { ...(await response.json()), headers: response.headers };
+        const data = await response.json();
+
+        return data.data as QueryApiType;
     }
 
     let responseText = '';
@@ -80,9 +83,9 @@ const fetchQuery = async ({ query, variables, headers }: QueryArguments) => {
     );
 
     throw new Error('GraphQL query failed');
-};
+}
 
-const fetchPersistedQuery = async ({ query, variables, headers }: QueryArguments) => {
+async function fetchPersistedQuery<Variables>({ query, variables, headers }: QueryArguments<Variables>) {
     const persistedQueryDefinition = await getPersistedQueryDefinition(query);
 
     const url = new URL(API_URL);
@@ -107,18 +110,18 @@ const fetchPersistedQuery = async ({ query, variables, headers }: QueryArguments
             throw new Error(PERSISTED_QUERY_NOT_FOUND_ERROR_CODE);
         }
 
-        return { ...data, headers: response.headers };
+        return data.data as QueryApiType;
     }
 
     throw new Error(`GraphQL persisted query failed ${url.href}`);
-};
+}
 
 const graphqlClient = {
-    query: async ({ query, variables, headers }: QueryArguments) => {
+    query: async <Variables>({ query, variables, headers }: QueryArguments<Variables>) => {
         try {
             if (shouldUsePersistedQuery()) {
                 // DO NOT REMOVE await HERE - it's required for fallback to fetchQuery to work
-                return await fetchPersistedQuery({ query, variables, headers });
+                return await fetchPersistedQuery<Variables>({ query, variables, headers });
             }
         } catch (e) {
             if (e.message !== PERSISTED_QUERY_NOT_FOUND_ERROR_CODE) {
@@ -127,7 +130,7 @@ const graphqlClient = {
             }
         }
 
-        return fetchQuery({ query, variables, headers });
+        return fetchQuery<Variables>({ query, variables, headers });
     },
 };
 

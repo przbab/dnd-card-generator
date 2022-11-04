@@ -8,9 +8,9 @@ const config: CodegenConfig = {
         './src/types/grqphql.ts': {
             plugins: ['typescript', 'typescript-operations'],
             config: {
-                avoidOptionals: true,
                 skipTypename: true,
                 defaultScalarType: 'unknown',
+                typesSuffix: 'ApiType',
             },
         },
     },
