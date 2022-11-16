@@ -1,41 +1,35 @@
-@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap'; // temp?
+@import '../../../src/styles/constants';
 
 .root {
-    box-sizing: border-box;
-    background-color: #000;
-    font-family: Roboto, sans-serif;
-    font-weight: 700;
+    background-color: $header-background-color;
+    font-family: $primary-font;
+    font-weight: $bold-font;
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    gap: 16px;
+}
 
-    & a {
-        font-size: 1rem;
-        text-align: center;
-        text-decoration: none;
-        text-transform: uppercase;
-        border-radius: 0.2rem 0.2rem 0 0;
-        width: 12%;
-        min-width: 156px;
-        padding: 1rem;
-        margin: 0.5rem 0.5rem 0;
-    }
+.tab {
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 4px 4px 0 0;
+    width: 12%;
+    min-width: 156px;
+    padding: 16px;
+    margin-top: 16px;
 }
 
 .activeTab {
-    color: #000;
-    background-color: #f5f9fc;
-
-    // border: red solid 1px;
+    color: $primary-text-color;
+    background-color: $body-background-color;
 }
 
 .inactiveTab {
-    color: #fff;
-    background-color: rgb(234 240 245 / 10%);
+    color: $inverted-text-color;
+    background-color: $inverted-background-color;
 
     &:hover {
-        margin-top: 0.5rem;
+        margin-top: 8px;
     }
-
-    // border: red solid 1px;
 }
