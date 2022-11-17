@@ -12,13 +12,19 @@ function GeneratorHeader() {
         <header>
             <nav className={styles.root}>
                 <Link
-                    className={cn(styles.tab, router.asPath.includes('search') ? styles.inactiveTab : styles.activeTab)}
+                    className={cn(
+                        styles.tab,
+                        router.pathname === linkToGenerator() ? styles.activeTab : styles.inactiveTab
+                    )}
                     href={linkToGenerator()}
                 >
                     Generator
                 </Link>
                 <Link
-                    className={cn(styles.tab, router.asPath.includes('search') ? styles.activeTab : styles.inactiveTab)}
+                    className={cn(
+                        styles.tab,
+                        router.pathname === linkToSearch() ? styles.activeTab : styles.inactiveTab
+                    )}
                     href={linkToSearch()}
                 >
                     Search
