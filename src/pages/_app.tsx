@@ -6,7 +6,7 @@ import type { AppProps } from 'next/app';
 import { Roboto } from '@next/font/google';
 
 const roboto = Roboto({
-    weight: ['100', '400', '700'],
+    weight: ['400', '700'],
 });
 
 export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
