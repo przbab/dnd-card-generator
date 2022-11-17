@@ -1,0 +1,33 @@
+@import '../../../src/styles/constants';
+
+.root {
+    background-color: $header-background-color;
+    font-family: $primary-font;
+    font-weight: $bold-font;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.tab {
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    min-width: 156px;
+    padding: 16px;
+    margin-top: 16px;
+}
+
+.activeTab {
+    color: $primary-text-color;
+    background-color: $body-background-color;
+}
+
+.inactiveTab {
+    color: $inverted-text-color;
+    background-color: $inverted-background-color;
+
+    &:hover {
+        margin-top: 8px;
+    }
+}

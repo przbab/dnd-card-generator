@@ -28,6 +28,7 @@
         "url": "https://github.com/przbab/dnd-card-generator/issues"
     },
     "dependencies": {
+        "@next/font": "^13.0.3",
         "classnames": "^2.3.2",
         "graphql-tag": "^2.12.6",
         "next": "^13.0.0",
