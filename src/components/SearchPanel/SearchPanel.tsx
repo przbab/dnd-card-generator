@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useLayoutEffect, useRef } from 'react';
 import { debounce } from 'throttle-debounce';
 import { linkToSearch } from '../../helpers/links';
 import { getQueryParam } from '../../helpers/routing';
+import styles from './SearchPanel.module.scss';
 
 export function SearchPanel() {
     const router = useRouter();
@@ -48,6 +49,69 @@ export function SearchPanel() {
         <form action="/generator/search" onSubmit={handleSubmit} ref={formRef}>
             <input name="query" onKeyUp={handleChange} type="search" />
             <input type="reset" />
+            <h2>Search Filters</h2>
+            <label htmlFor="rememberFilters">
+                <input id="rememberFilters" name="rememberFilters" type="checkbox" />
+                Remember my filters
+            </label>
+            <select name="types">
+                <option disabled hidden selected value="">
+                    Type
+                </option>
+                <option aria-label="type" value="0">
+                    Any
+                </option>
+                <option aria-label="type" value="1">
+                    placeHolder
+                </option>
+            </select>
+            <select name="sources">
+                <option disabled hidden selected value="">
+                    Source
+                </option>
+                <option aria-label="source" value="0">
+                    Any
+                </option>
+                <option aria-label="source" value="1">
+                    placeHolder
+                </option>
+            </select>
+            <select name="schools">
+                <option disabled hidden selected value="">
+                    School
+                </option>
+                <option aria-label="school" value="0">
+                    Any
+                </option>
+                <option aria-label="school" value="1">
+                    placeHolder
+                </option>
+            </select>
+            <select name="classes">
+                <option disabled hidden selected value="">
+                    Class
+                </option>
+                <option aria-label="class" value="0">
+                    Any
+                </option>
+                <option aria-label="class" value="1">
+                    placeHolder
+                </option>
+            </select>
+            <h2>Level</h2>
+            <input className={styles.input} list="levels" max="9" min="0" name="level" type="range" />
+            <datalist className={styles.datalist} id="levels">
+                <option className={styles.option} label="C" value="0" />
+                <option className={styles.option} label="1" value="1" />
+                <option className={styles.option} label="2" value="2" />
+                <option className={styles.option} label="3" value="3" />
+                <option className={styles.option} label="4" value="4" />
+                <option className={styles.option} label="5" value="5" />
+                <option className={styles.option} label="6" value="6" />
+                <option className={styles.option} label="7" value="7" />
+                <option className={styles.option} label="8" value="8" />
+                <option className={styles.option} label="9" value="9" />
+            </datalist>
         </form>
     );
 }
